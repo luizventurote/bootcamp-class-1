@@ -1458,8 +1458,6 @@ h1 {
 
 h2 {
   font-size: em(floor($font-size-header * 0.78));
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
 
   @include media-query($small) {
     font-size: em(floor(($font-size-header * 0.78) * 0.9));
@@ -1533,20 +1531,6 @@ h6 {
   // make it flush with the bottom of the container
   &:last-child {
     margin-bottom: 0;
-  }
-
-  h1,
-  h2,
-  h3,
-  h4,
-  h5,
-  h6 {
-    margin-top: $gutter-site;
-    margin-bottom: $gutter-site / 2;
-
-    &:first-child {
-      margin-top: 0;
-    }
   }
 
   li {
@@ -1805,9 +1789,6 @@ ol {
 
 /*================ #Rich Text Editor ================*/
 .rte {
-  img {
-    height: auto;
-  }
 
   table {
     table-layout: fixed;
