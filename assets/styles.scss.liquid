@@ -203,3 +203,52 @@ button,
         background-color: transparent;
     }
 }
+
+// Badge
+// -----------------------------------------------------------   
+
+.badge {
+    background: $color-pink;
+    border-radius: 5px;
+    color: $color-white;
+    padding: 4px 5px;
+    @extend .mini-text-uppercase;
+}
+
+// Forms
+// -----------------------------------------------------------
+
+label {
+    @extend .mini-text-uppercase;
+}
+
+select,
+input {
+    padding: 8px 10px;
+    height: 40px;
+    border: 0;
+    font-size: 16px;
+    line-height: 24px;
+    color: $color-black;
+    outline: 1px solid $color-border;
+
+    &:focus {
+        outline-color: $color-black;
+    }
+}
+
+select {
+    padding-right: 40px;
+}
+
+// Minicart
+// -----------------------------------------------------------
+
+.minicart-trigger {
+
+    .badge {
+        line-height: 16px;
+        margin-right: 5px;
+        padding: 4px 2px 4px 5px;
+    }
+} 
