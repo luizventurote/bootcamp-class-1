@@ -5,7 +5,7 @@
         <h1>{{ page.title }}</h1>
       </div>
 
-      <div class="rte">
+      <div class="style-guide">
       
         <h1>Heading 1</h1>
         <h2>Heading 2</h2>
@@ -26,6 +26,8 @@
 
         <div class="heading-uppercase-small">Heading uppercase Small</div>
 
+        <hr>
+
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 
         <p class="crossed-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
@@ -33,6 +35,8 @@
         <p class="mini-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
         
         <p class="mini-text-uppercase">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+
+        <hr>
 
         {% include 'icon-cart' %}
         {% include 'icon-close' %}
@@ -46,8 +50,37 @@
         {% include 'icon-facebook' %}
         {% include 'icon-arrow' %}
 
+        <hr>
+
         <button>Button test</button>
         <button class="btn">Button test</button>
+
+        <hr>
+
+        <span class="badge">10</span>
+
+        <span class="badge">Text example</span>
+
+        <a href="#" class="site-header__icon site-header__cart">
+          {% include 'icon-cart' %}
+          <span class="icon__fallback-text">Carrinho</span>
+          <div class="site-header__cart-count">
+            <span>10</span>
+            <span class="icon__fallback-text medium-up--hide">itens</span>
+          </div>
+        </a>
+
+        <hr>
+
+        <label for="input_test">Label example</label>
+        <input type="text" id="input_test">
+
+        <label for="select_test">Select example</label>
+        <select id="select_test">
+          <option>Option 1</option>
+          <option>Option 2</option>
+          <option>Option 3</option>
+        </select>
 
       </div>
     </div>
