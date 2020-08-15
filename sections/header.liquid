@@ -68,9 +68,9 @@
           Site name gets precedence with H1 tag on homepage, div on other pages.
         {% endcomment %}
         {% if request.page_type == 'index' %}
-          <h1 class="h2 site-header__logo">
+          <h1 class="site-header__logo">
         {% else %}
-          <div class="h2 site-header__logo">
+          <div class="site-header__logo">
         {% endif %}
           {% if section.settings.logo %}
             {%- assign img_url = section.settings.logo | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
@@ -141,7 +141,7 @@
 
           {% unless linklists[section.settings.main_linklist] == blank %}
             <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
-              {% include 'icon-hamburger' %}
+              {% include 'icon-menu' %}
               {% include 'icon-close' %}
             </button>
           {% endunless %}

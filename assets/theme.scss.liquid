@@ -4782,10 +4782,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   position: relative;
   background-color: $color-body;
 
-  @include media-query($small) {
-    border-bottom: 1px solid $color-border;
-  }
-
   @include media-query($medium-up) {
     padding: 0 $gutter-site;
 
@@ -4799,7 +4795,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 /// Logo
 
 .site-header__logo {
-  margin: 15px 0;
 
   .logo-align--center & {
     text-align: center;
@@ -4812,7 +4807,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
 
   @include media-query($small) {
-    padding-left: $gutter-site-mobile;
     text-align: left;
 
     img {
@@ -4857,7 +4851,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
   @include media-query($small) {
     width: auto;
-    padding-right: 13px;
 
     .btn--link {
       font-size: em($font-size-base);
@@ -4912,23 +4905,9 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 .site-header__menu {
-  display: none;
 }
 
 .site-header__icon {
-  @include media-query($small) {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 10px 11px;
-    margin: 0;
-  }
-
-  .icon-search {
-
-    @include media-query($medium-up) {
-      margin-right: 3px;
-    }
-  }
 }
 
 ///
@@ -6202,7 +6181,6 @@ $nav-button-padding: 15px;
 .site-header__mobile-nav {
   z-index: $z-index-mobile-nav;
   position: relative;
-  background-color: $color-body;
 
   @include media-query($small) {
     @include display-flexbox();

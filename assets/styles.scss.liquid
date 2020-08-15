@@ -1,12 +1,19 @@
-// Colors
+// Variables
 // -----------------------------------------------------------
 
+// Colors
 $color-border: #CCCCCC;
 $color-black: #000;
 $color-black-focus: #444;
 $color-white: #FFF;
 $color-pink: #ED1E7A;
 $color-pink-focus: #C01561;
+
+// Backgrounds
+$color-body: {{ settings.color_body_bg }};
+
+// Header
+$header-mobile-hight: 56px;
     
 // Fonts
 // -----------------------------------------------------------    
@@ -251,4 +258,31 @@ select {
         margin-right: 5px;
         padding: 4px 2px 4px 5px;
     }
-} 
+}
+
+// Page
+// -----------------------------------------------------------
+
+.page-container {
+    padding-top: $header-mobile-hight;
+}
+
+// Header
+// -----------------------------------------------------------
+
+.site-header {
+    height: $header-mobile-hight;
+    background: $color-body;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+    padding: 0 20px;
+}
+
+.site-header__icon {
+    padding: 0;
+
+    .icon {
+        width: 40px;
+    }
+}
