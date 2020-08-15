@@ -148,5 +148,58 @@ button,
 
     &:focus {
         background: $color-black-focus;
+        border-radius: 0;
+    }
+}
+
+.btn-small {
+    height: 40px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+
+.btn-large {
+    height: 56px;
+    padding-top: 16px;
+    padding-bottom: 16px;
+}
+
+.btn-pink:not([disabled]),
+.btn-pink {
+    background-color: $color-pink;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $color-pink-focus;
+    }
+}
+
+.btn-ghost:not([disabled]),
+.btn-ghost {
+    background-color: transparent;
+    outline: 1px solid $color-white;
+    outline-offset: -1px;
+
+    &:hover,
+    &:active,
+    &:focus {
+        background-color: $color-black-focus;
+        outline-offset: -4px;
+        outline-width: 4px;
+    }
+}
+
+.btn-ghost-black:not([disabled]),
+.btn-ghost-black {
+    color: $color-black;
+    outline-color: $color-black;
+
+    &:hover,
+    &:active,
+    &:focus {
+        color: $color-black;
+        outline-color: $color-black;
+        background-color: transparent;
     }
 }
