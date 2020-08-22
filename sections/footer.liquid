@@ -208,6 +208,7 @@
 
               {%- when 'link_list' -%}
                 {%- assign footer_linklist = block.settings.menu -%}
+
                   <ul class="site-footer__linklist
                             {% if inline_list %}list--inline{% endif %}">
                     {%- for link in linklists[footer_linklist].links -%}
@@ -219,8 +220,8 @@
                         </a>
                       </li>
                     {%- endfor -%}
+                    <li class="site-footer__linklist-item">{%- include 'customer-login-link' -%}</li>
                   </ul>
-
             {%- endcase -%}
 
           </div>

@@ -1,0 +1,10 @@
+{% if shop.customer_accounts_enabled %}
+    {% if customer %}
+        <a href="{{ routes.account_url }}" class="site-header__icon site-header__account">
+            <span>{{ 'layout.customer.account' | t }}</span>
+        </a>
+    {% else %}<a href="{{ routes.account_login_url }}" class="site-header__icon site-header__account">
+            <span>{{ 'layout.customer.log_in' | t }}</span>
+        </a>
+    {% endif %}
+{% endif %}
