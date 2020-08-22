@@ -255,8 +255,10 @@ select {
 
     .badge {
         line-height: 16px;
-        margin-right: 5px;
-        padding: 4px 2px 4px 5px;
+        padding: 4px 5px;
+        min-width: 25px;
+        display: inline-block;
+        text-align: center;
     }
 }
 
@@ -276,13 +278,34 @@ select {
     position: fixed;
     width: 100%;
     z-index: 999;
-    padding: 0 20px;
+    padding: 8px 20px;
+}
+
+.site-header__logo-wrapper {
+    width: auto;
+}
+
+.site-header__logo {
+    margin: 0;
+}
+
+.site-header__logo-image {
+
+    img {
+        height: 40px;
+    }
 }
 
 .site-header__icon {
     padding: 0;
+    height: 24px;
+    width: 24px;
 
-    .icon {
-        width: 40px;
+    &.site-header__menu {
+        margin-left: 20px;
+    }
+
+    &.site-header__cart {
+        margin-left: 15px;
     }
 }

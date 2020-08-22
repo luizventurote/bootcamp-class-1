@@ -55,6 +55,10 @@
         <button>Button test</button>
         <button class="btn">Button test</button>
         <button class="btn btn-pink">Button test</button>
+
+        <a href="#">Button test</a>
+        <a href="#" class="btn">Button test</a>
+        <a href="#" class="btn btn-pink">Button test</a>
         
         <div style="background: black; padding: 20px; margin: 30px 0;">
           <button class="btn btn-ghost">Button test</button>
@@ -89,14 +93,7 @@
           <span class="icon__fallback-text">Carrinho</span>
         </a>
 
-        <a href="#" class="site-header__icon site-header__cart minicart-trigger">
-          <span class="site-header__cart-count badge">
-            <span>10</span>
-            <span class="icon__fallback-text medium-up--hide">itens</span>
-          </span>
-          <span>{% include 'icon-cart' %}</span>
-          <span class="icon__fallback-text">Carrinho</span>
-        </a>
+        {% include 'minicart' %}
 
         <hr>
         

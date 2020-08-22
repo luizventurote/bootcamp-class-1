@@ -1295,10 +1295,8 @@ $grid-breakpoints: (
   clip: auto;
   width: auto;
   height: auto;
-  margin: 0;
-  color: $color-text;
-  background-color: $color-bg;
-  padding: 10px;
+  margin: 8px 20px;
+  padding: 8px;
   opacity: 1;
   z-index: $z-index-skip-to-content;
   transition: none;
@@ -4848,9 +4846,9 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 .site-header__icons {
   position: relative;
   white-space: nowrap;
+    width: 100%;
 
   @include media-query($small) {
-    width: auto;
 
     .btn--link {
       font-size: em($font-size-base);
@@ -4860,9 +4858,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 
 .site-header__icons-wrapper {
   position: relative;
-  @include display-flexbox();
-  @include align-items(center);
-  @include justify-content(flex-end);
+  display: block;
 }
 
 ///
@@ -4881,10 +4877,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
       display: block;
     }
   }
-}
-
-.site-header__search-toggle {
-  display: block;
 }
 
 .site-header__account {
