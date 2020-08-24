@@ -1,0 +1,59 @@
+<p>{{ section.settings.title }}</p>
+
+{% for block in section.blocks %}
+
+  {{ block.settings.content }}
+  
+{% endfor %}
+
+{%- if section.settings.button_url -%}
+  <a href="{{ section.settings.button_url }}" class="btn">{{ section.settings.button_title }}</a>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Call to Action",
+  "settings": [
+    {
+      "id": "title",
+      "type": "text",
+      "label": "Title",
+      "default": "We are back"
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "id": "button_title",
+      "type": "text",
+      "label": "Button Title",
+      "default": "Shop new collection"
+    },
+    {
+      "id": "button_url",
+      "type": "url",
+      "label": "Button Url"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "content_block",
+      "name": "Content Block",
+      "settings": [
+        {
+          "id": "content",
+          "type": "richtext",
+          "label": "Content"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Call to Action",
+      "category": "CTA"
+    }
+  ]
+}
+{% endschema %}
