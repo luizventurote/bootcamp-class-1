@@ -206,6 +206,15 @@
                   </div>
                 {%- endif -%}
 
+              {%- when 'logo_img' -%}
+              
+                {% if block.settings.img %}
+                  {% capture logo_alt %}{{ block.settings.img.alt | default: shop.name }}{% endcapture %}
+                  <a href="{{ routes.root_url }}" class="site-footer__logo">
+                    <img src="{{ block.settings.img | img_url: '300x300' }}" alt="{{ logo_alt }}" />
+                  </a>
+                {% endif %}
+
               {%- when 'link_list' -%}
                 {%- assign footer_linklist = block.settings.menu -%}
 
@@ -924,6 +933,31 @@
             "th": "จดหมายข่าว",
             "zh-CN": "新闻通讯",
             "zh-TW": "電子報"
+          }
+        }
+      ]
+    },
+    {
+      "type": "logo_img",
+      "name": {
+        "en": "Logo",
+        "pt-BR": "Logo"
+      },
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": {
+            "en": "Title",
+            "pt-BR": "Título"
+          }
+        },
+        {
+          "type": "image_picker",
+          "id": "img",
+          "label": {
+            "en": "Image",
+            "pt-BR": "Imagem"
           }
         }
       ]
