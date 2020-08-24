@@ -22,7 +22,6 @@
     "predictive_search_show_vendor": false,
     "predictive_search_show_price": false,
     "share_facebook": true,
-    "share_instagram": true,
     "share_twitter": true,
     "share_pinterest": true,
     "social_twitter_link": "#",
@@ -49,6 +48,7 @@
     "checkout_accent_color": "#161616",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#e32c2b",
+    "share_instagram": true,
     "sections": {
       "header": {
         "type": "header",
@@ -239,30 +239,39 @@
       "footer": {
         "type": "footer",
         "blocks": {
+          "1598309803619": {
+            "type": "logo_img",
+            "settings": {
+              "title": "",
+              "img": "shopify:\/\/shop_images\/white-logo.png"
+            }
+          },
+          "1598310423659": {
+            "type": "text",
+            "settings": {
+              "title": "Fale sobre o seu negócio",
+              "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>"
+            }
+          },
           "footer-0": {
             "type": "link_list",
             "settings": {
               "title": "Links rápidos",
               "menu": "footer"
             }
-          },
-          "footer-1": {
-            "type": "newsletter",
-            "settings": {
-              "title": "Newsletter"
-            }
           }
         },
         "block_order": [
-          "footer-0",
-          "footer-1"
+          "1598309803619",
+          "1598310423659",
+          "footer-0"
         ],
         "settings": {
-          "show_payment_icons": true,
+          "show_payment_icons": false,
           "color_footer_bg": "#000000",
           "color_footer_text": "#ffffff",
-          "show_locale_selector": true,
-          "show_currency_selector": true
+          "show_locale_selector": false,
+          "show_currency_selector": false
         }
       },
       "product-template": {
@@ -314,6 +323,58 @@
           "sort": "alphabetical",
           "grid": 3
         }
+      },
+      "1598312048921": {
+        "type": "call-to-action",
+        "blocks": {
+          "1598312075235": {
+            "type": "content_block",
+            "settings": {
+              "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut<strong>e irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint oc<\/strong>caecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>"
+            }
+          },
+          "1598312092146": {
+            "type": "content_block",
+            "settings": {
+              "content": "<p>fdsfsdfds<\/p>"
+            }
+          },
+          "1598312095637": {
+            "type": "content_block",
+            "settings": {
+              "content": "<p>Flamengo!!<\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1598312075235",
+          "1598312092146",
+          "1598312095637"
+        ],
+        "settings": {
+          "title": "We are back",
+          "button_title": "Shop new collection",
+          "button_url": "#"
+        }
+      },
+      "call-to-action": {
+        "type": "call-to-action",
+        "blocks": {
+          "1598312740420": {
+            "type": "content_block",
+            "settings": {
+              "content": "<p><em><strong>style guide Lorem ipsum dolor sit amet, consecat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/strong><\/em><\/p>"
+            }
+          }
+        },
+        "block_order": [
+          "1598312740420"
+        ],
+        "settings": {
+          "title": "We are back style guide!!!!",
+          "button_title": "we are in the style guide!",
+          "button_url": "shopify:\/\/products\/produto-teste"
+        }
       }
     },
     "content_for_index": [
@@ -323,7 +384,8 @@
       "collection",
       "hero-2",
       "quotes",
-      "image-bar"
+      "image-bar",
+      "1598312048921"
     ]
   },
   "presets": {
