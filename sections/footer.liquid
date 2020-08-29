@@ -213,18 +213,46 @@
               {%- when 'link_list' -%}
                 {%- assign footer_linklist = block.settings.menu -%}
 
-                  <ul class="site-footer__linklist
-                            {% if inline_list %}list--inline{% endif %}">
+                  <ul class="site-footer__linklist level-1 {% if inline_list %}list--inline{% endif %}">
+
+                    {% comment %} LEVEL 1 {% endcomment %}
                     {%- for link in linklists[footer_linklist].links -%}
+
                       <li class="site-footer__linklist-item">
-                        <a href="{{ link.url }}"
-                          {% if link.current %} aria-current="page"{% endif %}
-                        >
-                          {{ link.title | escape }}
+
+                        <a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %}>
+                          {{- link.title | escape -}}
                         </a>
+
+                        {% comment %} LEVEL 2 {% endcomment %}
+                        {% if link.links != blank %}
+                          <ul class="sublinks level-2">
+                          {% for level2_link in link.links %}
+                            <li>
+
+                              <a href="{{ level2_link.url }}">{{- level2_link.title -}}</a>
+
+                              {% comment %} LEVEL 3 {% endcomment %}
+                              {% if level2_link.links != blank  %}
+                                <ul class="sublinks level-3">
+                                {% for level3_link in level2_link.links %}
+                                    <li>
+                                      <a href="{{ level3_link.url }}">{{- level3_link.title -}}</a>
+                                    </li>
+                                {% endfor %}
+                                </ul>
+                              {% endif %}
+
+                            </li>
+                          {% endfor %}
+                          </ul>
+                        {% endif %}
+
                       </li>
                     {%- endfor -%}
+
                     <li class="site-footer__linklist-item">{%- include 'customer-login-link' -%}</li>
+
                   </ul>
             {%- endcase -%}
 
