@@ -219,7 +219,7 @@
 
                       <li class="site-footer__linklist-item">
 
-                        <a href="{{ link.url }}" {% if link.current %} aria-current="page"{% endif %}>
+                        <a href="{{ link.url }}" class="{% if link.links != blank %}accordion{% endif %}" {% if link.current %} aria-current="page"{% endif %}>
                           {{- link.title | escape -}}
                         </a>
 
@@ -229,7 +229,7 @@
                           {% for level2_link in link.links %}
                             <li>
 
-                              <a href="{{ level2_link.url }}">{{- level2_link.title -}}</a>
+                              <a href="{{ level2_link.url }}" class="{% if level2_link.links != blank %}accordion{% endif %}">{{- level2_link.title -}}</a>
 
                               {% comment %} LEVEL 3 {% endcomment %}
                               {% if level2_link.links != blank  %}
