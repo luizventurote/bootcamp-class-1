@@ -1,1 +1,5 @@
-<img class="icon icon-twitter" src="{{ 'icon-twitter.svg' | asset_url }}" alt="{{ icons.twitter | t }}" />
+{%- capture img_name -%}
+    icon-twitter{% if type %}-{{ type }}{% endif %}.svg
+{%- endcapture -%}
+
+<img class="icon icon-twitter" src="{{ img_name | asset_url }}" alt="{{ icons.twitter | t }}" />

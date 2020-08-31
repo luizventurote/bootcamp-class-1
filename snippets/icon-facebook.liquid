@@ -1,1 +1,4 @@
-<img class="icon icon-facebook" src="{{ 'icon-facebook.svg' | asset_url }}" alt="{{ icons.facebook | t }}" />
+{%- capture img_name -%}
+    icon-facebook{% if type %}-{{ type }}{% endif %}.svg
+{%- endcapture -%}
+<img class="icon icon-facebook" src="{{ img_name | asset_url }}" alt="{{ icons.facebook | t }}" />

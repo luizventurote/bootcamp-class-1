@@ -1,1 +1,4 @@
-<img class="icon icon-instagram" src="{{ 'icon-instagram.svg' | asset_url }}" alt="{{ icons.instagram | t }}" />
+{%- capture img_name -%}
+    icon-instagram{% if type %}-{{ type }}{% endif %}.svg
+{%- endcapture -%}
+<img class="icon icon-instagram" src="{{ img_name | asset_url }}" alt="{{ icons.instagram | t }}" />
