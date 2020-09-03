@@ -1,0 +1,33 @@
+{%- if section.settings.title != blank -%}
+<h2 class="h1 hero-title mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
+{%- endif -%}
+{%- if section.settings.text != blank -%}
+<div class="rte-setting hero-text mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
+{%- endif -%}
+{%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+{%- capture ariaLabel -%}
+    {{- section.settings.button_label -}}
+    {%- if section.settings.button_link.type == 'frontpage_link' -%}
+    : {{ 'homepage.general.title' | t -}}
+    {%- elsif section.settings.button_link.type == 'catalog_link' -%}
+    : {{ 'collections.catalog.title' | t -}}
+    {%- elsif section.settings.button_link.object.title -%}
+    : {{ section.settings.button_link.object.title -}}
+    {%- endif -%}
+{%- endcapture -%}
+
+<a href="{{ section.settings.button_link }}"
+    class="btn {{ section.settings.button_style }}"
+    aria-label="{{ ariaLabel }}">
+    {{- section.settings.button_label | escape -}}
+</a>
+{%- endif -%}
+
+<style>
+
+    [data-section-id="{{ section.id }}"] .hero-title,
+    [data-section-id="{{ section.id }}"] .hero-text p {
+        color: {{ section.settings.text_color }};
+    }
+
+</style>

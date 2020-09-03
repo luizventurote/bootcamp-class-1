@@ -12,127 +12,113 @@
   {%- endstyle -%}
 {%- endif -%}
 <div data-section-id="{{ section.id }}" data-section-type="hero-section">
+
   {%- if section.settings.hero_layout == 'fixed_width' -%}
     <div class="page-width">
   {%- endif -%}
 
-  <div class="image-banner">
+    {% if section.settings.background_image %}
 
-    <img src="{{ section.settings.image | img_url: '1000' }}"/>
-
-    <div class="overlay">
-
-      <h2>Test</h2>
-
-    </div>
-
-  </div>
-
-  {%- if section.settings.hero_layout == 'fixed_width' and section.settings.hero_size ==  'adapt' -%}
-    {%- assign slide_width = 1090 -%}
-    {%- assign min_aspect_ratio = section.settings.image.aspect_ratio | default: 2.0 -%}
-    <div class="hero-fixed-width hero--adapt"
-         id="Hero-{{ section.id }}"
-         data-layout="{{ section.settings.hero_layout }}">
-      {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
-      {%- if section.settings.image.width < max_width -%}
-        {%- assign slide_width = section.settings.image.width -%}
-      {%- endif -%}
-      <div class="hero-fixed-width__content">
-        <div class="page-width text-center">
-          {%- if section.settings.title != blank -%}
-            <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
+      {%- if section.settings.hero_layout == 'fixed_width' and section.settings.hero_size ==  'adapt' -%}
+        {%- assign slide_width = 1090 -%}
+        {%- assign min_aspect_ratio = section.settings.image.aspect_ratio | default: 2.0 -%}
+        <div class="hero-fixed-width hero--adapt"
+            id="Hero-{{ section.id }}"
+            data-layout="{{ section.settings.hero_layout }}">
+          {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+          {%- if section.settings.image.width < max_width -%}
+            {%- assign slide_width = section.settings.image.width -%}
           {%- endif -%}
-          {%- if section.settings.text != blank -%}
-            <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
-          {%- endif -%}
-          {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-            <a href="{{ section.settings.button_link }}" class="btn hero__btn">
-              {{ section.settings.button_label | escape }}
-            </a>
-          {%- endif -%}
-        </div>
-      </div>
-      {%- if section.settings.image != blank -%}
-        <img class="hero-fixed-width__image lazyload lazypreload"
-             src="{{ section.settings.image | img_url: '300x300' }}"
-             data-src="{{ img_url }}"
-             data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
-             data-aspectratio="{{ section.settings.image.aspect_ratio }}"
-             data-sizes="auto"
-             style="{%- if slide_width <= max_width -%}
-                      {%- assign min_width = slide_width | times: 100 | divided_by: max_width -%}
-                      min-width: {{ min_width }}%;
-                    {%- endif -%}
-                    object-position: {{ section.settings.alignment }};"
-             alt="{{ section.settings.image.alt | escape }}">
-      {%- else -%}
-        <span>
-          {% capture current %}{% cycle 1, 2 %}{% endcapture %}
-          {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
-        </span>
-      {%- endif -%}
-      <noscript>
-        <div class="hero-fixed-width__image"{% if section.settings.image %}{% unless section.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}'); background-position: center {{ section.settings.alignment }};"{% endif %}></div>
-      </noscript>
-    </div>
-  {%- else -%}
-    <div class="hero hero--{{ section.settings.hero_size }} hero-{{ section.id }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %} box ratio-container lazyload js"
-         id="Hero-{{ section.id }}"
-         data-layout="{{ section.settings.hero_layout }}"
-         {%- if section.settings.image -%}
-          {% unless section.settings.image.alt == blank %}
-          role="img"
-          aria-label="{{ section.settings.image.alt | escape }}"
-          data-alt="{{ section.settings.image.alt | escape }}"
-          {% endunless %}
-         data-bg="{{ section.settings.image | img_url: '300x300' }}"
-         data-bgset="{% include 'bgset', image: section.settings.image %}"
-         data-sizes="auto"
-         data-parent-fit="cover"
-         style="background-position: {{ section.settings.alignment }}; background-image: url('{{ section.settings.image | img_url: '300x300' }});"
-         {%- endif -%}>
-    {%- if section.settings.image == blank -%}
-      <div class="placeholder-background">
-        {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
-      </div>
-    {%- endif -%}
-      <div class="hero__inner">
-        <div class="page-width text-center">
-          {%- if section.settings.title != blank -%}
-            <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
-          {%- endif -%}
-          {%- if section.settings.text != blank -%}
-            <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
-          {%- endif -%}
-          {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
-            {%- capture ariaLabel -%}
-              {{- section.settings.button_label -}}
-              {%- if section.settings.button_link.type == 'frontpage_link' -%}
-                : {{ 'homepage.general.title' | t -}}
-              {%- elsif section.settings.button_link.type == 'catalog_link' -%}
-                : {{ 'collections.catalog.title' | t -}}
-              {%- elsif section.settings.button_link.object.title -%}
-                : {{ section.settings.button_link.object.title -}}
+          <div class="hero-fixed-width__content">
+            <div class="page-width text-center">
+              {%- if section.settings.title != blank -%}
+                <h2 class="h1 mega-title{% if section.settings.text_size == 'large' %} mega-title--large{% endif %}">{{ section.settings.title | escape }}</h2>
               {%- endif -%}
-            {%- endcapture -%}
-
-            <a href="{{ section.settings.button_link }}"
-              class="btn hero__btn"
-              aria-label="{{ ariaLabel }}">
-              {{- section.settings.button_label | escape -}}
-            </a>
+              {%- if section.settings.text != blank -%}
+                <div class="rte-setting mega-subtitle{% if section.settings.text_size == 'large' %} mega-subtitle--large{% endif %}">{{ section.settings.text }}</div>
+              {%- endif -%}
+              {%- if section.settings.button_label != blank and section.settings.button_link != blank -%}
+                <a href="{{ section.settings.button_link }}" class="btn hero__btn">
+                  {{ section.settings.button_label | escape }}
+                </a>
+              {%- endif -%}
+            </div>
+          </div>
+          {%- if section.settings.image != blank -%}
+            <img class="hero-fixed-width__image lazyload lazypreload"
+                src="{{ section.settings.image | img_url: '300x300' }}"
+                data-src="{{ img_url }}"
+                data-widths="[180, 360, 470, 600, 770, 970, 1060, 1280, 1512, 1728, 2048]"
+                data-aspectratio="{{ section.settings.image.aspect_ratio }}"
+                data-sizes="auto"
+                style="{%- if slide_width <= max_width -%}
+                          {%- assign min_width = slide_width | times: 100 | divided_by: max_width -%}
+                          min-width: {{ min_width }}%;
+                        {%- endif -%}
+                        object-position: {{ section.settings.alignment }};"
+                alt="{{ section.settings.image.alt | escape }}">
+          {%- else -%}
+            <span>
+              {% capture current %}{% cycle 1, 2 %}{% endcapture %}
+              {{ 'lifestyle-' | append: current | placeholder_svg_tag: 'placeholder-svg' }}
+            </span>
           {%- endif -%}
+          <noscript>
+            <div class="hero-fixed-width__image"{% if section.settings.image %}{% unless section.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}'); background-position: center {{ section.settings.alignment }};"{% endif %}></div>
+          </noscript>
         </div>
+      {%- else -%}
+        <div class="hero hero--{{ section.settings.hero_size }} hero-{{ section.id }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %} box ratio-container lazyload js"
+            id="Hero-{{ section.id }}"
+            data-layout="{{ section.settings.hero_layout }}"
+            {%- if section.settings.image -%}
+              {% unless section.settings.image.alt == blank %}
+              role="img"
+              aria-label="{{ section.settings.image.alt | escape }}"
+              data-alt="{{ section.settings.image.alt | escape }}"
+              {% endunless %}
+            data-bg="{{ section.settings.image | img_url: '300x300' }}"
+            data-bgset="{% include 'bgset', image: section.settings.image %}"
+            data-sizes="auto"
+            data-parent-fit="cover"
+            style="background-position: {{ section.settings.alignment }}; background-image: url('{{ section.settings.image | img_url: '300x300' }});"
+            {%- endif -%}>
+        {%- if section.settings.image == blank -%}
+          <div class="placeholder-background">
+            {{ 'lifestyle-1' | placeholder_svg_tag: 'placeholder-svg' }}
+          </div>
+        {%- endif -%}
+          <div class="hero__inner">
+            <div class="page-width text-center">
+              {% include 'hero-overlay-content' %}
+            </div>
+          </div>
+        </div>
+        <noscript>
+          <div class="hero hero--{{ section.settings.hero_size }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %}"{% if section.settings.image %}{% unless section.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}'); background-position: center {{ section.settings.alignment }};"{% endif %}></div>
+        </noscript>
+      {%- endif -%}
+
+    {% else %}
+
+      <div class="image-banner overlay-{{ section.settings.overlay_alignment }}">
+
+        <img src="{{ section.settings.image | img_url: '1000' }}"/>
+
+        <div class="overlay">
+
+          {% include 'hero-overlay-content' %}
+
+        </div>
+
       </div>
-    </div>
-    <noscript>
-      <div class="hero hero--{{ section.settings.hero_size }}{% if section.settings.title != blank or section.settings.text != blank or section.settings.button_label != blank %} hero__overlay{% endif %}"{% if section.settings.image %}{% unless section.settings.image.alt == blank %} role="img" aria-label="{{ section.settings.image.alt | escape }}"{% endunless %} style="background-image: url('{{ section.settings.image | img_url: '2048x' }}'); background-position: center {{ section.settings.alignment }};"{% endif %}></div>
-    </noscript>
-  {%- endif -%}
+      
+    {% endif %}
+
   {%- if section.settings.hero_layout == 'fixed_width' -%}
     </div>
   {%- endif -%}
+
 </div>
 
 {% schema %}
@@ -159,6 +145,11 @@
   },
   "class": "index-section index-section--flush",
   "settings": [
+    {
+      "type": "checkbox",
+      "id": "background_image",
+      "label": "Image background"
+    },
     {
       "type": "image_picker",
       "id": "image",
@@ -518,6 +509,82 @@
       ]
     },
     {
+      "type": "color",
+      "id": "text_color",
+      "label": {
+        "en": "Text color",
+      },
+      "default": "#000000"
+    },
+    {
+      "type": "header",
+      "content": "Overlay"
+    },
+    {
+      "type": "select",
+      "id": "overlay_alignment",
+      "label": {
+        "en": "Overlay alignment"
+      },
+      "default": "center",
+      "options": [
+        {
+          "value": "top",
+          "label": {
+            "en": "Top"
+          }
+        },
+        {
+          "value": "top-left",
+          "label": {
+            "en": "Top / Left"
+          }
+        },
+        {
+          "value": "top-right",
+          "label": {
+            "en": "Top / Right"
+          }
+        },
+        {
+          "value": "center",
+          "label": {
+            "en": "Middle"
+          }
+        },
+        {
+          "value": "center-left",
+          "label": {
+            "en": "Middle / Left"
+          }
+        },
+        {
+          "value": "center-right",
+          "label": {
+            "en": "Middle / Right"
+          }
+        },
+        {
+          "value": "bottom",
+          "label": {
+            "en": "Bottom"
+          }
+        },
+        {
+          "value": "bottom-left",
+          "label": {
+            "en": "Bottom / Left"
+          }
+        },
+        {
+          "value": "bottom-right",
+          "label": {
+            "en": "Bottom / Right"
+          }
+        }
+      ]
+    },
+    {
       "type": "select",
       "id": "text_size",
       "label": {
@@ -677,6 +744,44 @@
         "zh-CN": "<p>使用叠加文本让客户深入了解您的品牌。选择与您的风格和故事相关的图片和文本。</p>",
         "zh-TW": "<p>運用文字疊加層讓顧客更加瞭解您的品牌。選擇與您風格和品牌故事相關的圖像和文字。</p>"
       }
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": {
+        "en": "Style"
+      },
+      "default": "",
+      "options": [
+        {
+          "value": "",
+          "label": {
+            "en": "Default"
+          }
+        },
+        {
+          "value": "btn-pink",
+          "label": {
+            "en": "Pink"
+          }
+        },
+        {
+          "value": "btn-ghost",
+          "label": {
+            "en": "Ghost"
+          }
+        },
+        {
+          "value": "btn-ghost-black",
+          "label": {
+            "en": "Ghost Black"
+          }
+        }
+      ]
     },
     {
       "type": "text",

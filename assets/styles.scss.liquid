@@ -199,8 +199,10 @@ button,
 
 .btn-ghost-black:not([disabled]),
 .btn-ghost-black {
+    background-color: transparent;
+    outline: 1px solid $color-black;
+    outline-offset: -1px;
     color: $color-black;
-    outline-color: $color-black;
 
     &:hover,
     &:active,
@@ -208,6 +210,8 @@ button,
         color: $color-black;
         outline-color: $color-black;
         background-color: transparent;
+        outline-offset: -4px;
+        outline-width: 4px;
     }
 }
 
@@ -404,6 +408,49 @@ select {
     align-items: center;
     justify-content: center;
     position: relative;
+    text-align: center;
+
+    &.overlay-top {
+        align-items: flex-start;
+    }
+
+    &.overlay-top-left {
+        align-items: flex-start;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    &.overlay-top-right {
+        align-items: flex-start;
+        justify-content: flex-end;
+        text-align: right;
+    }
+
+    &.overlay-center-left {
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    &.overlay-center-right {
+        justify-content: flex-end;
+        text-align: right;
+    }
+
+    &.overlay-bottom {
+        align-items: flex-end;
+    }
+
+    &.overlay-bottom-left {
+        align-items: flex-end;
+        justify-content: flex-start;
+        text-align: left;
+    }
+
+    &.overlay-bottom-right {
+        align-items: flex-end;
+        justify-content: flex-end;
+        text-align: right;
+    }
 
     img {
         width: 100%;
@@ -411,8 +458,10 @@ select {
 
     .overlay {
         position: absolute;
-        color: white;
-        background: red;
-        width: 100px;
+        padding: 56px 20px;
+
+        .rte-setting {
+            margin-bottom: 16px;
+        }
     }
 }
