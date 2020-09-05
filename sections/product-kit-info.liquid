@@ -1,0 +1,61 @@
+<br><br>
+
+<div class="page-width">
+
+    {%- if product.metafields.accentuate.kit_description -%}
+
+        <h2>Descrição do kit</h2>
+        <p>{{ product.metafields.accentuate.kit_description }}</p>
+        
+    {%- endif -%}
+    
+    {%- assign kit_products = product.metafields.accentuate.kit_products | split: '|' -%}
+
+    {%- if kit_products.size > 0 -%}
+
+        <h2>Produtos</h2>
+
+        {%- for kit_item in kit_products -%}
+
+            {%- assign product_item = all_products[kit_item] -%}
+
+            <h3>{{ product_item.title }}</h3>
+
+            <img src="{{ product_item.featured_image | img_url: '300' }}" alt="{{ product_item.title }}"/>
+
+            {{ product_item.metafields.accentuate.tecido }}
+
+            {%- for tag in product_item.tags -%}
+
+                {%- if tag == 'new' -%}
+                    <span>Novo!</span>
+                {%- endif -%}
+                
+            {%- endfor -%}
+
+            <hr>
+
+        {%- endfor -%}
+        
+    {%- endif -%}
+    
+    {%- for kit_collection in product.collections -%}
+
+        <h2>{{ kit_collection.title }}</h2>
+
+        <script>console.log({{ kit_collection.metafields.accentuate.thumbnail | json }});</script>
+
+        {%- for img in kit_collection.metafields.accentuate.thumbnail -%}
+
+            <a href="{{ kit_collection.url }}">
+            
+                <img src="{{ img.cloudinary_src | append: 'w_200'}}" alt="{{ kit_collection.title }}" />
+            
+            </a>
+            
+        {%- endfor -%}
+        
+    {%- endfor -%}
+    
+
+</div>
