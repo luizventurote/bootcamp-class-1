@@ -43,7 +43,7 @@
     <img class="grid-view-item__image" src="{{ preview_image | img_url: image_size, scale: 2 }}" alt="{{ preview_image.alt }}" style="max-width: {{ max_height | times: preview_image.aspect_ratio }}px;">
   </noscript>
 
-  <div class="h4 grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
+  <div class="grid-view-item__title product-card__title" aria-hidden="true">{{ product.title }}</div>
 
   {% include 'product-price-listing', product: product, show_vendor: show_vendor %}
 
