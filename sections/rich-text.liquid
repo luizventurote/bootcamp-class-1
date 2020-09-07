@@ -2,13 +2,17 @@
   <div class="grid">
     <div class="grid__item {% unless section.settings.full_width %} medium-up--two-thirds medium-up--push-one-sixth{% endunless %}">
       {% if section.settings.section_title != blank %}
-        <div class="rich-text__heading--{{ section.settings.text_size }} text-center">
-          <h2 class="h3">{{ section.settings.section_title | escape }}</h2>
+        <div class="rich-text__heading--{{ section.settings.text_size }}">
+          <h2 class="h1">{{ section.settings.section_title | escape }}</h2>
         </div>
       {% endif %}
       {% if section.settings.text != blank %}
-        <div class="rich-text__text--{{ section.settings.text_size }} rte-setting text-center">{{ section.settings.text }}</div>
+        <div class="rich-text__text--{{ section.settings.text_size }} rte-setting">{{ section.settings.text }}</div>
       {% endif %}
+      <a href="{{ section.settings.button_link }}"
+          class="btn {{ section.settings.button_style }}">
+          {{- section.settings.button_label | escape -}}
+      </a>
     </div>
   </div>
 </div>
@@ -246,6 +250,92 @@
           "value": "large"
         }
       ]
+    },
+    {
+      "type": "header",
+      "content": "Button"
+    },
+    {
+      "type": "select",
+      "id": "button_style",
+      "label": {
+        "en": "Style"
+      },
+      "default": "",
+      "options": [
+        {
+          "value": "",
+          "label": {
+            "en": "Default"
+          }
+        },
+        {
+          "value": "btn-pink",
+          "label": {
+            "en": "Pink"
+          }
+        },
+        {
+          "value": "btn-ghost",
+          "label": {
+            "en": "Ghost"
+          }
+        },
+        {
+          "value": "btn-ghost-black",
+          "label": {
+            "en": "Ghost Black"
+          }
+        }
+      ]
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": {
+        "da": "Knaptekst",
+        "de": "Button-Etikett",
+        "en": "Button label",
+        "es": "Etiqueta de botón",
+        "fi": "Tekstipainike",
+        "fr": "Texte du bouton",
+        "hi": "बटन लेबल",
+        "it": "Etichetta pulsante",
+        "ja": "ボタンのラベル",
+        "ko": "버튼 레이블",
+        "nb": "Knappetikett",
+        "nl": "Knoplabel",
+        "pt-BR": "Etiqueta de botão",
+        "pt-PT": "Etiqueta do botão",
+        "sv": "Knappetikett",
+        "th": "ป้ายกำกับปุ่ม",
+        "zh-CN": "按钮标签",
+        "zh-TW": "按鈕標籤"
+      }
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": {
+        "da": "Knaplink",
+        "de": "Button-Etikett",
+        "en": "Button link",
+        "es": "Enlace de botón",
+        "fi": "Painikelinkki",
+        "fr": "Lien du bouton",
+        "hi": "बटन लिंक",
+        "it": "Link pulsante",
+        "ja": "ボタンのリンク",
+        "ko": "버튼 링크",
+        "nb": "Kobling for knapp",
+        "nl": "Knoplink",
+        "pt-BR": "Link de botão",
+        "pt-PT": "Ligação do botão",
+        "sv": "Knapplänk",
+        "th": "ลิงก์ปุ่ม",
+        "zh-CN": "按钮链接",
+        "zh-TW": "按鈕連結"
+      }
     }
   ],
   "presets": [
