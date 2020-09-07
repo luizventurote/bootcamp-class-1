@@ -323,6 +323,57 @@ select {
     }
 }
 
+// Search
+// -----------------------------------------------------------
+
+.search-bar {
+    height: 56px;
+    padding: 16px 20px;
+
+    &:after {
+        content: '';
+        width: 100%;
+        height: 1px;
+        background: $color-border;
+        position: absolute;
+        display: block;
+        left: 0;
+        right: 0;
+        bottom: 0;
+    }
+}
+
+.search-bar__input {
+    padding: 0;
+    height: 24px;
+    border: 0;
+    outline: 0;
+}
+
+.search-bar__submit {
+    right: auto;
+    left: 0;
+    padding: 0;
+    width: 24px;
+    height: 24px;
+
+    &:hover,
+    &:focus {
+        background: transparent;
+    }
+}
+
+.search-form__input-wrapper {
+    padding-left: 44px;
+}
+
+.search-bar__close {
+    padding: 0;    
+    width: 24px;
+    height: 24px;
+    text-align: center;
+}
+
 // Footer
 // -----------------------------------------------------------
 

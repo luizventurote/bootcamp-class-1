@@ -4794,6 +4794,7 @@ window.theme = window.theme || {};
 theme.SearchDrawer = (function() {
   var selectors = {
     headerSection: '[data-header-section]',
+    header: '[data-header-section] > header',
     drawer: '[data-predictive-search-drawer]',
     drawerOpenButton: '[data-predictive-search-open-drawer]',
     headerSearchInput: '[data-predictive-search-drawer-input]',
@@ -4830,7 +4831,7 @@ theme.SearchDrawer = (function() {
 
   function setHeight() {
     $(selectors.drawer).css({
-      height: $(selectors.headerSection).outerHeight()
+      height: $(selectors.header).outerHeight()
     });
   }
 

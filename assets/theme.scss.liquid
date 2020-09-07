@@ -492,7 +492,7 @@ $z-index-sub-nav: 8;
 $z-index-drawer: 9;
 $z-index-announcement-bar: 10;
 $z-index-mobile-nav: 11;
-$z-index-search-bar: 999;
+$z-index-search-bar: 1001;
 $z-index-predictive-search-wrapper: 1000;
 $z-index-skip-to-content: 10000; // really high to be safe of app markup
 
@@ -5502,8 +5502,6 @@ $search-bar-button-hover: rgba($color-text-field-text, 0.6);
 }
 
 .search-form__input {
-  @include common-search-input;
-  border: 1px solid $color-border-form;
 
   &::-ms-clear {
     display: none;
@@ -5631,16 +5629,12 @@ $search-bar-button-hover: rgba($color-text-field-text, 0.6);
   display: flex;
   align-items: center;
   justify-content: center;
-  padding-left: $gutter-site-mobile - $input-padding-left-right-small;
-  padding-right: $gutter-site-mobile - $common-search-input-padding;
   background-color: $color-bg;
 }
 
 .search-bar__form {
   flex: 1 1 100%;
   position: relative;
-  max-width: $grid-medium;
-  border: 1px solid transparent;
 }
 
 /// Search bar (mobile) Actions
@@ -5657,32 +5651,6 @@ $search-bar-button-hover: rgba($color-text-field-text, 0.6);
   border: 0;
   margin: 0;
   color: $color-text-field-text;
-
-  .icon {
-    position: relative;
-    top: -1px;
-    width: 1.2rem;
-    height: auto;
-  }
-
-  &:hover, &:focus {
-    color: $search-bar-button-hover;
-  }
-}
-
-.search-bar__input {
-  @include common-search-input;
-  border: 1px solid $color-border-form;
-}
-
-.search-bar__close {
-  padding: calc(10em / 16) .75em;
-  margin-right: -($gutter-site-mobile - $common-search-input-padding);
-
-  .icon {
-    width: 1rem;
-    height: auto;
-  }
 }
 
 .search--less-than-2-results {
