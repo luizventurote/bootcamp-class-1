@@ -7446,11 +7446,14 @@ theme.ProductRecommendations = (function() {
       productId +
       '&limit=4';
 
+    var productTitle = this.$container.data('productTitle');
+
     $.get(recommendationsSectionUrl).then(
       function(section) {
         var recommendationsMarkup = $(section).html();
         if (recommendationsMarkup.trim() !== '') {
           this.$container.html(recommendationsMarkup);
+          this.$container.find('.product-recommendations__title').text(productTitle);
         }
       }.bind(this)
     );
