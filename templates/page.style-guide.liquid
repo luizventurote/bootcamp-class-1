@@ -144,6 +144,23 @@
 
         </div>
 
+        <hr>
+
+        {%- assign img_url = 'large-image-example.jpg' | file_img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+        </br>
+
+        <div style="padding-top:{{ 1 | divided_by: 1.635124905 | times: 100}}%; position: relative;">
+
+          <img style="width: 100%; display: block;position: absolute;top: 0;" alt="Test" class="lazyload"
+          src="{{ 'large-image-example.jpg' | file_img_url: '200x' }}"
+          data-src="{{ img_url }}"
+          data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+          data-aspectratio="1.635124905"
+          data-sizes="auto"/>
+
+        </div>
+
       </div>
     </div>
   </div>

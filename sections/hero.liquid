@@ -103,7 +103,13 @@
 
       <div class="image-banner overlay-{{ section.settings.overlay_alignment }}">
 
-        <img src="{{ section.settings.image | img_url: '1000' }}"/>
+        {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+
+        <img style="width: 100%; display: block;=" alt="Test" class="lazyload"
+        src="{{ section.settings.image | img_url: '200x' }}"
+        data-src="{{ img_url }}"
+        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
+        data-sizes="auto"/>
 
         <div class="overlay">
 
