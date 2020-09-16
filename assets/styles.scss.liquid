@@ -146,6 +146,14 @@ p {
     height: 24px;
 }
 
+.icon-arrow-right {
+    transform: rotate(-90deg);
+}
+
+.icon-arrow-left {
+    transform: rotate(90deg);
+}
+
 // Buttons
 // -----------------------------------------------------------   
 
@@ -547,6 +555,12 @@ select {
 
 .grid-view-item__image-wrapper {
     margin: 0 auto 8px;
+    max-width: 100% !important;
+}
+
+.grid-view-item__image {
+    max-width: 100% !important;
+    max-height: none !important;
 }
 
 // Product Card
@@ -556,6 +570,45 @@ select {
     text-align: center;
 }
 
-.product-card__title {
-    
+// Collection
+// -----------------------------------------------------------
+
+.collection-hero__title-wrapper {
+
+    h1 {
+        margin-bottom: 24px;
+    }
+}
+
+.collection-description {
+    text-align: center;
+}
+
+.filters-toolbar__item {
+
+    &.filters-toolbar__item--count {
+        display: none;
+    }
+}
+
+// Pagination
+// -----------------------------------------------------------
+
+.pagination__text {
+
+    .current-item {
+        position: relative;
+
+        &:before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: $color-black;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    }
 }

@@ -1343,7 +1343,7 @@ html {
 
 .main-content {
   display: block;
-  padding-top: $section-spacing-small;
+  padding-top: 40px;
 
   @include media-query($medium-up) {
     padding-top: $section-spacing;
@@ -4072,8 +4072,13 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 .collection-hero {
   position: relative;
   overflow: hidden;
-  margin-top: -$gutter-site;
-  margin-bottom: $gutter-site-mobile;
+  margin-top: -40px;
+  margin-bottom: 40px;
+
+  img {
+    width: 100%;
+    display: block;
+  }
 
   @include media-query($medium-up) {
     margin-bottom: $section-spacing-small;
@@ -4102,26 +4107,9 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
   }
 }
 
-.collection-hero__title-wrapper::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background-color: $color-image-overlay;
-  opacity: $opacity-image-overlay;
-}
-
 .collection-hero__title {
-  position: absolute;
-  color: $color-overlay-title-text;
   width: 100%;
   text-align: center;
-  left: 0;
-  right: 0;
-  top: 50%;
-  @include transform(translateY(-50%));
 
   @include media-query($medium-up) {
     font-size: em($font-size-header + 6);
@@ -5396,7 +5384,7 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 .pagination__text {
-  padding: 0 ($gutter-site / 2);
+  padding: 0 7px;
 }
 
 .comment {
@@ -6839,13 +6827,11 @@ $transition-controls-slideshow: color 0.2s $ease-transition,
 }
 
 /*================ Module | Filters and Sort toolbar and selection ================*/
-$toolbar-height: 55px;
-$toolbar-height-small: 46px;
+$toolbar-height: 40px;
+$toolbar-height-small: 40px;
 
 .filters-toolbar-wrapper {
-  border-bottom: 1px solid $color-border;
-  border-top: 1px solid $color-border;
-  margin-bottom: $gutter-site-mobile;
+  margin-bottom: 24px;
 
   @include media-query($medium-up) {
     margin-bottom: $section-spacing;
@@ -6882,16 +6868,6 @@ $toolbar-height-small: 46px;
     .filters-toolbar__item--count {
       @include flex-basis(100%);
       text-align: left;
-
-      &:before {
-        background-color: $color-border;
-        content: "";
-        height: 1px;
-        left: 0;
-        position: absolute;
-        top: auto;
-        width: 100%;
-      }
     }
   }
 }
@@ -6916,18 +6892,12 @@ $toolbar-height-small: 46px;
 
   &:first-child {
     @include media-query($small) {
-      margin-right: 2.5rem;
-    }
-
-    @include media-query($medium-up) {
-      margin-right: 3rem;
+      margin-right: 22px;
     }
   }
 
   .filters-toolbar__input {
     @include media-query($small) {
-      padding-left: 0;
-      padding-right: 25px;
       width: 100%;
     }
   }
@@ -6961,10 +6931,6 @@ $toolbar-height-small: 46px;
     margin-bottom: 0;
     margin-top: 8px;
   }
-}
-
-.filters-toolbar__input-wrapper {
-  display: inline-block;
 }
 
 .filters-toolbar__input {
