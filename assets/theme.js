@@ -2665,15 +2665,29 @@ theme.MobileNav = (function() {
     var translateHeaderHeight = cache.$siteHeader.outerHeight();
 
     cache.$mobileNavContainer.prepareTransition().addClass(classes.navOpen);
+    
+    if ( cache.$mobileNavContainer.hasClass('mobile-nav-slide') ) {
 
-    cache.$mobileNavContainer.css({
-      transform: 'translateY(' + translateHeaderHeight + 'px)'
-    });
+      cache.$mobileNavContainer.css({
+        transform: 'translateX(0)'
+      });
+  
+      cache.$pageContainer.css({
+        transform:
+          'translate3d(0, 0, 0)'
+      });
 
-    cache.$pageContainer.css({
-      transform:
-        'translate3d(0, ' + cache.$mobileNavContainer[0].scrollHeight + 'px, 0)'
-    });
+    } else {
+
+      cache.$mobileNavContainer.css({
+        transform: 'translateY(' + translateHeaderHeight + 'px)'
+      });
+  
+      cache.$pageContainer.css({
+        transform:
+          'translate3d(0, ' + cache.$mobileNavContainer[0].scrollHeight + 'px, 0)'
+      });
+    }
 
     slate.a11y.trapFocus({
       $container: cache.$sectionHeader,
@@ -2697,9 +2711,19 @@ theme.MobileNav = (function() {
   function closeMobileNav() {
     cache.$mobileNavContainer.prepareTransition().removeClass(classes.navOpen);
 
-    cache.$mobileNavContainer.css({
-      transform: 'translateY(-100%)'
-    });
+    if ( cache.$mobileNavContainer.hasClass('mobile-nav-slide') ) {
+
+      cache.$mobileNavContainer.css({
+        transform: 'translateX(100%)'
+      });
+
+    } else {
+
+      cache.$mobileNavContainer.css({
+        transform: 'translateY(-100%)'
+      });
+
+    }
 
     cache.$pageContainer.removeAttr('style');
 
