@@ -1,8 +1,14 @@
 <nav class="mobile-nav-wrapper medium-up--hide {% if section.settings.menu_type %}mobile-nav-slide{% endif %}" role="navigation">
 
-    <button type="button" class="btn--link site-header__icon site-header__menu js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
+    {% if section.settings.menu_type %}
+    
+    <div class="mobile-nav-slide-wrapper">
+
+    <button type="button" class="btn--link js-mobile-nav-toggle mobile-nav--open" aria-controls="MobileNav"  aria-expanded="false" aria-label="{{ 'layout.navigation.menu' | t }}">
         {% include 'icon-close' %}
     </button>
+
+    {% endif %}
 
     <ul id="MobileNav" class="mobile-nav">
     {% for link in linklists[section.settings.main_linklist].links %}
@@ -110,4 +116,7 @@
         </li>
     {% endfor %}
     </ul>
+
+    {% if section.settings.menu_type %}</div>{% endif %}
+
 </nav>

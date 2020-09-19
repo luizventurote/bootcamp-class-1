@@ -616,6 +616,10 @@ select {
 // Menu
 // -----------------------------------------------------------
 
+.menu-open {
+    overflow: hidden;
+}
+
 .mobile-nav-wrapper:not(.mobile-nav-slide) {
 
     .mobile-nav--close,
@@ -625,6 +629,23 @@ select {
 }
 
 .mobile-nav-slide {
+
+    &.js-menu--is-open {
+
+        &:before {
+            content: '';
+            display: block;
+            width: 100vw;
+            height: 100%;
+            position: fixed;
+            z-index: 90;
+            background: $color-black;
+            top: 0;
+            right: 300px;
+            bottom: 0;
+            opacity: 0.5;
+        }
+    }
     
     &.mobile-nav-wrapper {
         width: 300px;
@@ -637,5 +658,64 @@ select {
         -ms-transform: translateY(0) translateX(100%);
         -webkit-transform: translateY(0) translateX(100%);
         transform: translateY(0) translateX(100%);
+        padding: 0;
+        overflow: visible;
+    }
+
+    .mobile-nav-slide-wrapper {
+        background: green;
+        overflow: auto;
+        height: 100%;
+        padding: 16px 20px;
+    }
+
+    .js-mobile-nav-toggle {
+        background: red;
+        padding: 0;
+        height: 24px;
+        margin: 0 0 0 auto;
+        display: block;
+    }
+
+    .mobile-nav {
+        padding-bottom: 16px;
+    }
+
+    .mobile-nav__link, 
+    .mobile-nav__sublist-link {
+        padding: 0;
+    }
+    
+    &.third-nav--is-open .mobile-nav,
+    &.sub-nav--is-open .mobile-nav {
+        -ms-transform: translate3d(0, 0, 0);
+        -webkit-transform: translate3d(0, 0, 0);
+        transform: translate3d(0, 0, 0);
+    }
+
+    .mobile-nav__dropdown {
+        right: 0;
+        position: relative;
+        z-index: 0;
+    }
+
+    .mobile-nav__table {
+        display: block;
+        background: yellow;
+    }
+
+    .mobile-nav__table-cell {
+        display: block;
+        width: 100%;
+    }
+
+    .mobile-nav__return {
+        border: 0;
+    }
+
+    .mobile-nav__return-btn {
+        background: red !important;
+        width: 100%;
+        padding: 0;
     }
 }
