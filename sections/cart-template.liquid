@@ -3,9 +3,9 @@
   <div {% if cart.item_count == 0 %}class="hide" {% endif %}data-cart-wrapper>
     <div class="cart-header">
       <h1 class="cart-header__title">{{ 'cart.general.title' | t }}</h1>
-      <a href="{{ routes.all_products_collection_url }}" class="text-link text-link--accent">
+      {% comment %} <a href="{{ routes.all_products_collection_url }}" class="text-link text-link--accent">
         {{ 'cart.general.continue_shopping' | t }}
-      </a>
+      </a> {% endcomment %}
     </div>
 
     <form action="{{ routes.cart_url }}" method="post" novalidate class="cart">
@@ -17,14 +17,20 @@
           <th class="text-right small--hide" scope="col">{{ 'cart.label.total' | t }}</th>
         </thead>
         <tbody data-cart-line-items>
+
           {%- for item in cart.items -%}
+
+          
             <tr class="cart__row" data-cart-item data-cart-item-key="{{ item.key }}" data-cart-item-url="{{ item.url }}" data-cart-item-title="{{ item.title }}" data-cart-item-index="{{ forloop.index }}" data-cart-item-quantity="{{ item.quantity }}">
+              
+              
+              
               <td class="cart__meta small--text-left" data-cart-table-cell>
                 <div class="cart__product-information">
                   <div class="cart__image-wrapper">
                     <img class="cart__image{% if item.image == null %} hide{% endif %}" src="{{ item | img_url: 'x190' }}" alt="{{ item.image.alt | escape }}" data-cart-item-image>
                   </div>
-                  <div>
+                  <div class="cart__product-details">
                     <div class="list-view-item__title">
                       <a href="{{ item.url }}" class="cart__product-title" data-cart-item-title>
                         {{ item.product.title }}
@@ -77,20 +83,43 @@
                       {%- endfor -%}
                     </ul>
 
+                    <div class="cart__qty medium-up--hide">
+                      <label for="updates_{{ item.key }}" class="cart__qty-label" aria-label="{{ 'cart.label.quantity' | t }}" data-quantity-label-mobile>
+                        {{ 'cart.label.qty' | t }}
+                      </label>
+                      <input id="updates_{{ item.key }}" class="cart__qty-input" type="number"
+                        value="{{ item.quantity }}" min="0" pattern="[0-9]*"
+                        data-quantity-input data-quantity-item="{{ forloop.index }}" data-quantity-input-mobile>
+                    </div>
+                    <div class="cart__qty-error-message-wrapper cart__qty-error-message-wrapper--mobile hide" role="alert" data-cart-quantity-error-message-wrapper>
+                      <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
+                      {% include 'icon-error' %}
+                      <span class="cart__qty-error-message" data-cart-quantity-error-message></span>
+                    </div>
+
                     <p class="cart__remove">
                       <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-link text-link--accent" aria-label="{{ 'cart.label.remove' | t: product: item.title }}" data-cart-remove>{{ 'cart.general.remove' | t }}</a>
                     </p>
+                    
                   </div>
                 </div>
               </td>
+
+
+
               <td class="cart__price text-right">
+
+                <p class="cart__remove">
+                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-link text-link--accent icon__fallback-text" aria-label="{{ 'cart.label.remove' | t: product: item.title }}" data-cart-remove>{{ 'cart.general.remove' | t }}</a>
+                  {% render 'icon-close' %}
+                </p>
 
                 {%- assign hasDiscount = false -%}
                 {%- if item.original_price != item.final_price -%}
                   {%- assign hasDiscount = true -%}
                 {%- endif -%}
 
-                <div data-cart-item-price>
+                <div class="cart__item-price" data-cart-item-price>
                   <dl data-cart-item-price-list>
                     {%- comment -%}
                       Markup template for discount item
@@ -164,20 +193,10 @@
                   {%- endfor -%}
                 </ul>
 
-                <div class="cart__qty medium-up--hide">
-                  <label for="updates_{{ item.key }}" class="cart__qty-label" aria-label="{{ 'cart.label.quantity' | t }}" data-quantity-label-mobile>
-                    {{ 'cart.label.qty' | t }}
-                  </label>
-                  <input id="updates_{{ item.key }}" class="cart__qty-input" type="number"
-                    value="{{ item.quantity }}" min="0" pattern="[0-9]*"
-                    data-quantity-input data-quantity-item="{{ forloop.index }}" data-quantity-input-mobile>
-                </div>
-                <div class="cart__qty-error-message-wrapper cart__qty-error-message-wrapper--mobile hide" role="alert" data-cart-quantity-error-message-wrapper>
-                  <span class="visually-hidden">{{ 'general.accessibility.error' | t }} </span>
-                  {% include 'icon-error' %}
-                  <span class="cart__qty-error-message" data-cart-quantity-error-message></span>
-                </div>
               </td>
+
+
+
               <td class="cart__quantity-td text-right small--hide">
                 <div class="cart__qty">
                   <label for="updates_large_{{ item.key }}" class="cart__qty-label" data-quantity-label-desktop>{{ 'cart.label.quantity' | t }}</label>
@@ -191,6 +210,9 @@
                   <span class="cart__qty-error-message" data-cart-quantity-error-message></span>
                 </div>
               </td>
+
+
+
               <td class="cart__final-price text-right small--hide" data-cart-item-line-price>
                 {%- comment -%}
                   Markup template for discount item
@@ -217,8 +239,18 @@
                   <span data-cart-item-regular-price>{{ item.original_line_price | money }}</span>
                 </div>
               </td>
+
+
+
             </tr>
+
+
+
+
           {%- endfor -%}
+
+
+
         </tbody>
       </table>
 
