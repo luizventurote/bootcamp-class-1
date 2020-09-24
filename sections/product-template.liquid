@@ -122,7 +122,7 @@
     <div class="grid__item {{ product_description_width }}">
       <div class="product-single__meta">
 
-        <h1 class="product-single__title">{{ product.title }}</h1>
+        <h1 class="product-single__title h2">{{ product.title }}</h1>
 
           <div class="product__price">
             {% include 'product-price', variant: current_variant, show_vendor: section.settings.show_vendor %}
@@ -206,7 +206,7 @@
                 <button type="submit" name="add"
                   {% unless current_variant.available %} aria-disabled="true"{% endunless %}
                   aria-label="{% unless current_variant.available %}{{ 'products.product.sold_out' | t }}{% else %}{{ 'products.product.add_to_cart' | t }}{% endunless %}"
-                  class="btn product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"
+                  class="btn btn-ghost-black product-form__cart-submit{% if section.settings.enable_payment_button %} btn--secondary-accent{% endif %}"
                   {% if settings.enable_ajax %}aria-haspopup="dialog"{% endif %}
                   data-add-to-cart>
                   <span data-add-to-cart-text>
