@@ -2764,20 +2764,18 @@ theme.MobileNav = (function() {
 
   function toggleSubNav(evt) {
 
+    if ( isMobileSlideEnabled()) {
+      $(evt.currentTarget).toggleClass('is-active');
+      return;
+    }
+
     if (isTransitioning) {
       return;
     }
 
     var $toggleBtn = $(evt.currentTarget);
     var isReturn = $toggleBtn.hasClass(classes.return);
-
-    if ( !isMobileSlideEnabled() ) {
-      isTransitioning = true;
-    }
-
-    console.log('isReturn:', isReturn);
-    console.log('toggleBtn:', $toggleBtn);
-    
+    isTransitioning = true;
 
     if (isReturn) {
       // Close all subnavs by removing active class on buttons
@@ -2788,16 +2786,8 @@ theme.MobileNav = (function() {
       if ($activeTrigger && $activeTrigger.length) {
         $activeTrigger.removeClass(classes.subNavActive);
       }
-
-      
-      //$toggleBtn.removeClass(classes.return);
-
     } else {
       $toggleBtn.addClass(classes.subNavActive);
-
-
-      //$toggleBtn.addClass(classes.return);
-
     }
 
     $activeTrigger = $toggleBtn;
