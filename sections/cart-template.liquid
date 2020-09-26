@@ -120,8 +120,10 @@
               <td class="cart__price text-right">
 
                 <p class="cart__remove">
-                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-link text-link--accent icon__fallback-text" aria-label="{{ 'cart.label.remove' | t: product: item.title }}" data-cart-remove>{{ 'cart.general.remove' | t }}</a>
-                  {% render 'icon-close' %}
+                  <a href="/cart/change?line={{ forloop.index }}&amp;quantity=0" class="text-link text-link--accent" aria-label="{{ 'cart.label.remove' | t: product: item.title }}" data-cart-remove>
+                    <span class="icon__fallback-text">{{ 'cart.general.remove' | t }}</span>
+                    {% render 'icon-close' %}
+                  </a>
                 </p>
 
                 {%- assign hasDiscount = false -%}
