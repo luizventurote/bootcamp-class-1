@@ -35,6 +35,9 @@
                       <a href="{{ item.url }}" class="cart__product-title" data-cart-item-title>
                         {{ item.product.title }}
                       </a>
+                      {% unless item.product.has_only_default_variant %}
+                        <br><small>{{ item.variant.title }}</small>
+                      {% endunless %}
                     </div>
 
                     {%- assign variant_options = 'template ' | split: ' ' -%}
