@@ -57,6 +57,7 @@
           "logo": "shopify:\/\/shop_images\/Logo_48px_-_Black_1.png",
           "logo_max_width": 114,
           "main_linklist": "main-menu",
+          "menu_type": true,
           "message": false,
           "home_page_only": true,
           "message_text": "Anuncie algo aqui",
@@ -68,172 +69,31 @@
       "hero-1": {
         "type": "hero",
         "settings": {
-          "image": "",
+          "background_image": false,
+          "image": "shopify:\/\/shop_images\/image_3.jpg",
           "alignment": "center",
           "hero_layout": "full_width",
-          "hero_size": "large",
-          "text_size": "large",
-          "title": "Imagem com sobreposição de texto",
-          "text": "<p>Use o texto de sobreposição para apresentar insights sobre sua marca aos clientes. Selecione imagens e textos que reflitam seu estilo e sua história.<\/p>",
-          "button_label": "",
-          "button_link": ""
-        }
-      },
-      "feature-row": {
-        "type": "feature-row",
-        "settings": {
-          "image": "",
-          "layout": "left",
-          "title": "Imagem com texto",
-          "text": "<p>Emparelhe textos grandes com uma imagem para destacar o produto, a coleção ou o post do blog escolhido. Adicione informações sobre disponibilidade, estilo ou até mesmo uma avaliação.<\/p>",
-          "button_label": "",
-          "button_link": ""
-        }
-      },
-      "feature-columns": {
-        "type": "feature-columns",
-        "blocks": {
-          "feature-columns-0": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "image": "",
-              "title": "Adicione um título ou slogan",
-              "text": "<p>Compartilhe posts de blogs, produtos ou promoções com seus clientes. Use este texto para descrever produtos, compartilhar detalhes sobre disponibilidade e estilo ou como um espaço para exibir comentários recentes ou perguntas frequentes.<\/p>",
-              "button_label": "",
-              "button_link": ""
-            }
-          },
-          "feature-columns-1": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "image": "",
-              "title": "Adicione um título ou slogan",
-              "text": "<p>Compartilhe posts de blogs, produtos ou promoções com seus clientes. Use este texto para descrever produtos, compartilhar detalhes sobre disponibilidade e estilo ou como um espaço para exibir comentários recentes ou perguntas frequentes.<\/p>",
-              "button_label": "",
-              "button_link": ""
-            }
-          },
-          "feature-columns-2": {
-            "type": "text_block",
-            "settings": {
-              "enable_image": true,
-              "image": "",
-              "title": "Adicione um título ou slogan",
-              "text": "<p>Compartilhe posts de blogs, produtos ou promoções com seus clientes. Use este texto para descrever produtos, compartilhar detalhes sobre disponibilidade e estilo ou como um espaço para exibir comentários recentes ou perguntas frequentes.<\/p>",
-              "button_label": "",
-              "button_link": ""
-            }
-          }
-        },
-        "block_order": [
-          "feature-columns-0",
-          "feature-columns-1",
-          "feature-columns-2"
-        ],
-        "settings": {
-          "title": "",
-          "align_text": "left"
+          "hero_size": "adapt",
+          "text_color": "#ffffff",
+          "overlay_alignment": "bottom",
+          "text_size": "medium",
+          "title": "Find your best style",
+          "title_width": 300,
+          "text": "",
+          "button_style": "btn-ghost",
+          "button_label": "Shop Sale",
+          "button_link": "#"
         }
       },
       "collection": {
         "type": "collection",
         "settings": {
-          "title": "Coleção em destaque",
-          "collection": "",
+          "title": "New Products",
+          "collection": "men",
           "grid": 4,
           "rows": 2,
           "show_vendor": false,
           "show_view_all": false
-        }
-      },
-      "hero-2": {
-        "type": "hero",
-        "settings": {
-          "image": "",
-          "alignment": "center",
-          "hero_layout": "full_width",
-          "hero_size": "medium",
-          "text_size": "large",
-          "title": "Imagem com sobreposição de texto",
-          "text": "<p>Use o texto de sobreposição para apresentar insights sobre sua marca aos clientes. Selecione imagens e textos que reflitam seu estilo e sua história.<\/p>",
-          "button_label": "",
-          "button_link": ""
-        }
-      },
-      "quotes": {
-        "type": "quotes",
-        "blocks": {
-          "quotes-0": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Adicione comentários e depoimentos para dar destaque aos clientes satisfeitos com a sua loja.<\/p>",
-              "author": "Nome do autor"
-            }
-          },
-          "quotes-1": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Adicione comentários e depoimentos para dar destaque aos clientes satisfeitos com a sua loja.<\/p>",
-              "author": "Nome do autor"
-            }
-          },
-          "quotes-2": {
-            "type": "quote",
-            "settings": {
-              "quote": "<p>Adicione comentários e depoimentos para dar destaque aos clientes satisfeitos com a sua loja.<\/p>",
-              "author": "Nome do autor"
-            }
-          }
-        },
-        "block_order": [
-          "quotes-0",
-          "quotes-1",
-          "quotes-2"
-        ],
-        "settings": {
-          "title": ""
-        }
-      },
-      "image-bar": {
-        "type": "image-bar",
-        "blocks": {
-          "image-bar-0": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "alignment": "center",
-              "link": "",
-              "cta_label": ""
-            }
-          },
-          "image-bar-1": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "alignment": "center",
-              "link": "",
-              "cta_label": ""
-            }
-          },
-          "image-bar-2": {
-            "type": "image",
-            "settings": {
-              "image": "",
-              "alignment": "center",
-              "link": "",
-              "cta_label": ""
-            }
-          }
-        },
-        "block_order": [
-          "image-bar-0",
-          "image-bar-1",
-          "image-bar-2"
-        ],
-        "settings": {
-          "section_height": "medium"
         }
       },
       "footer": {
@@ -298,13 +158,18 @@
       "hero": {
         "type": "hero",
         "settings": {
+          "background_image": false,
           "image": "",
           "alignment": "center",
           "hero_layout": "full_width",
           "hero_size": "medium",
+          "text_color": "#000000",
+          "overlay_alignment": "center",
           "text_size": "medium",
           "title": "Bootcamp",
+          "title_width": 0,
           "text": "<p>sdsdifjsdifjsdifds<\/p>",
+          "button_style": "",
           "button_label": "",
           "button_link": ""
         }
@@ -322,39 +187,6 @@
           "display_type": "all",
           "sort": "alphabetical",
           "grid": 3
-        }
-      },
-      "1598312048921": {
-        "type": "call-to-action",
-        "blocks": {
-          "1598312075235": {
-            "type": "content_block",
-            "settings": {
-              "content": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aut<strong>e irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint oc<\/strong>caecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>"
-            }
-          },
-          "1598312092146": {
-            "type": "content_block",
-            "settings": {
-              "content": "<p>fdsfsdfds<\/p>"
-            }
-          },
-          "1598312095637": {
-            "type": "content_block",
-            "settings": {
-              "content": "<p>Flamengo!!<\/p>"
-            }
-          }
-        },
-        "block_order": [
-          "1598312075235",
-          "1598312092146",
-          "1598312095637"
-        ],
-        "settings": {
-          "title": "We are back",
-          "button_title": "Shop new collection",
-          "button_url": "#"
         }
       },
       "call-to-action": {
@@ -375,17 +207,88 @@
           "button_title": "we are in the style guide!",
           "button_url": "shopify:\/\/products\/produto-teste"
         }
+      },
+      "1599317781285": {
+        "type": "feature-row",
+        "settings": {
+          "image": "shopify:\/\/shop_images\/image_13.jpg",
+          "layout": "left",
+          "title": "Designed for fashion.",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+          "button_label": "",
+          "button_link": ""
+        }
+      },
+      "1599505506966": {
+        "type": "hero",
+        "settings": {
+          "background_image": false,
+          "image": "shopify:\/\/shop_images\/image_10.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "medium",
+          "text_color": "#ffffff",
+          "overlay_alignment": "bottom",
+          "text_size": "medium",
+          "title": "Best Sellers",
+          "title_width": 200,
+          "text": "",
+          "button_style": "",
+          "button_label": "Shop Now",
+          "button_link": "#"
+        }
+      },
+      "1599505658035": {
+        "type": "hero",
+        "settings": {
+          "background_image": false,
+          "image": "shopify:\/\/shop_images\/image_9.jpg",
+          "alignment": "center",
+          "hero_layout": "full_width",
+          "hero_size": "medium",
+          "text_color": "#ffffff",
+          "overlay_alignment": "bottom-right",
+          "text_size": "medium",
+          "title": "15% off sale",
+          "title_width": 0,
+          "text": "<p>Use code EXTRA15 to save even more on our summer sale. Plus free shipping on orders over $50.<\/p>",
+          "button_style": "btn-ghost",
+          "button_label": "Shop sale",
+          "button_link": "#"
+        }
+      },
+      "1599505837827": {
+        "type": "collection",
+        "settings": {
+          "title": "Accessories",
+          "collection": "dev-t-shirt",
+          "grid": 4,
+          "rows": 2,
+          "show_vendor": false,
+          "show_view_all": false
+        }
+      },
+      "1599505958410": {
+        "type": "rich-text",
+        "settings": {
+          "full_width": false,
+          "section_title": "Designed for fashion.",
+          "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
+          "text_size": "medium",
+          "button_style": "",
+          "button_label": "Shop Now",
+          "button_link": "#"
+        }
       }
     },
     "content_for_index": [
       "hero-1",
-      "feature-row",
-      "feature-columns",
       "collection",
-      "hero-2",
-      "quotes",
-      "image-bar",
-      "1598312048921"
+      "1599505506966",
+      "1599505958410",
+      "1599317781285",
+      "1599505658035",
+      "1599505837827"
     ]
   },
   "presets": {
@@ -393,7 +296,8 @@
       "sections": {
         "header": {
           "type": "header",
-          "settings": {}
+          "settings": {
+          }
         },
         "hero-1": {
           "type": "hero",
@@ -404,22 +308,26 @@
         },
         "feature-row": {
           "type": "feature-row",
-          "settings": {}
+          "settings": {
+          }
         },
         "feature-columns": {
           "type": "feature-columns",
           "blocks": {
             "feature-columns-0": {
               "type": "text_block",
-              "settings": {}
+              "settings": {
+              }
             },
             "feature-columns-1": {
               "type": "text_block",
-              "settings": {}
+              "settings": {
+              }
             },
             "feature-columns-2": {
               "type": "text_block",
-              "settings": {}
+              "settings": {
+              }
             }
           },
           "block_order": [
@@ -448,15 +356,18 @@
           "blocks": {
             "quotes-0": {
               "type": "quote",
-              "settings": {}
+              "settings": {
+              }
             },
             "quotes-1": {
               "type": "quote",
-              "settings": {}
+              "settings": {
+              }
             },
             "quotes-2": {
               "type": "quote",
-              "settings": {}
+              "settings": {
+              }
             }
           },
           "block_order": [
@@ -473,15 +384,18 @@
           "blocks": {
             "image-bar-0": {
               "type": "image",
-              "settings": {}
+              "settings": {
+              }
             },
             "image-bar-1": {
               "type": "image",
-              "settings": {}
+              "settings": {
+              }
             },
             "image-bar-2": {
               "type": "image",
-              "settings": {}
+              "settings": {
+              }
             }
           },
           "block_order": [
@@ -489,18 +403,21 @@
             "image-bar-1",
             "image-bar-2"
           ],
-          "settings": {}
+          "settings": {
+          }
         },
         "footer": {
           "type": "footer",
           "blocks": {
             "footer-0": {
               "type": "link_list",
-              "settings": {}
+              "settings": {
+              }
             },
             "footer-1": {
               "type": "newsletter",
-              "settings": {}
+              "settings": {
+              }
             }
           },
           "block_order": [
@@ -652,20 +569,23 @@
         },
         "1492033809691": {
           "type": "map",
-          "settings": {}
+          "settings": {
+          }
         },
         "1492033877875": {
           "type": "quotes",
           "blocks": {
             "1492033877875-0": {
               "type": "quote",
-              "settings": {}
+              "settings": {
+              }
             }
           },
           "block_order": [
             "1492033877875-0"
           ],
-          "settings": {}
+          "settings": {
+          }
         },
         "1492033924902": {
           "type": "custom-content",
@@ -691,15 +611,18 @@
           "blocks": {
             "1492096252560-0": {
               "type": "featured_collection",
-              "settings": {}
+              "settings": {
+              }
             },
             "1492096252560-1": {
               "type": "featured_collection",
-              "settings": {}
+              "settings": {
+              }
             },
             "1492096252560-2": {
               "type": "featured_collection",
-              "settings": {}
+              "settings": {
+              }
             }
           },
           "block_order": [
@@ -738,15 +661,18 @@
           "blocks": {
             "link_list": {
               "type": "link_list",
-              "settings": {}
+              "settings": {
+              }
             },
             "text": {
               "type": "text",
-              "settings": {}
+              "settings": {
+              }
             },
             "newsletter": {
               "type": "newsletter",
-              "settings": {}
+              "settings": {
+              }
             }
           },
           "block_order": [
