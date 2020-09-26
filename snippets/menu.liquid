@@ -14,7 +14,7 @@
     {% for link in linklists[section.settings.main_linklist].links %}
         {%- assign outerLoopIndex = forloop.index -%}
 
-        <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
+        <li class="mobile-nav__item">
 
         {% if link.links != blank %}
 
@@ -25,7 +25,8 @@
                 <span class="mobile-nav__label">{{ link.title | escape }}</span>
 
                 <div class="mobile-nav__icon">
-                    {% include 'icon-chevron-right' %}
+                    {% include 'icon-minus' %}
+                    {% include 'icon-plus' %}
                 </div>
 
             </button>
@@ -36,7 +37,7 @@
                     {{- link.title }} {{ 'layout.navigation.menu' | t -}}
                 </li>
 
-                <li class="mobile-nav__item border-bottom">
+                <li class="mobile-nav__item">
                     <div class="mobile-nav__table">
                     <div class="mobile-nav__table-cell mobile-nav__return">
                         <button class="btn--link js-toggle-submenu mobile-nav__return-btn" type="button" aria-expanded="true" aria-label="{{ link.title }}">
@@ -50,20 +51,21 @@
                 </li>
 
                 {% for childlink in link.links %}
-                    <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
+                    <li class="mobile-nav__item">
                     {% if childlink.links != blank %}
                         {% capture grandchild_list_handle %}{{ childlink.handle }}-{{ outerLoopIndex }}-{{ forloop.index }}{% endcapture %}
                         <button type="button" class="btn--link js-toggle-submenu mobile-nav__link mobile-nav__sublist-link" data-target="{{ grandchild_list_handle }}" aria-expanded="false">
                         <span class="mobile-nav__label">{{ childlink.title | escape }}</span>
                         <div class="mobile-nav__icon">
-                            {% include 'icon-chevron-right' %}
+                            {% include 'icon-minus' %}
+                            {% include 'icon-plus' %}
                         </div>
                         </button>
                         <ul class="mobile-nav__dropdown" data-parent="{{ grandchild_list_handle }}" data-level="3">
                         <li class="visually-hidden" tabindex="-1" data-menu-title="3">
                             {{- childlink.title }} {{ 'layout.navigation.menu' | t -}}
                         </li>
-                        <li class="mobile-nav__item border-bottom">
+                        <li class="mobile-nav__item">
                             <div class="mobile-nav__table">
                             <div class="mobile-nav__table-cell mobile-nav__return">
                                 <button type="button" class="btn--link js-toggle-submenu mobile-nav__return-btn" data-target="{{ child_list_handle }}" aria-expanded="true" aria-label="{{ childlink.title }}">
@@ -79,7 +81,7 @@
                             </div>
                         </li>
                         {% for grandchildlink in childlink.links %}
-                            <li class="mobile-nav__item{% unless forloop.last %} border-bottom{% endunless %}">
+                            <li class="mobile-nav__item">
                             <a href="{{ grandchildlink.url }}"
                                 class="mobile-nav__sublist-link"
                                 {% if grandchildlink.current %} aria-current="page"{% endif %}
