@@ -6666,7 +6666,15 @@ theme.Product = (function() {
     this.initDesktopBreakpoint();
     this._stringOverrides();
     this._initVariants();
-    this._initMediaSwitch();
+
+
+
+
+    this._initMediaSlider();
+
+    //this._initMediaSwitch();
+
+
     this._initAddToCart();
     this._setActiveThumbnail();
     this._initProductVideo();
@@ -6744,6 +6752,50 @@ theme.Product = (function() {
         'variantSKUChange' + this.settings.namespace,
         this._updateSKU.bind(this)
       );
+    },
+
+    _initMediaSlider: function() {
+
+      var slider = $('[data-product-media-slider]'),
+          self = this;
+    
+      slider.slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        dots: true,
+        arrows: false,
+        adaptiveHeight: true
+      });
+    
+      this._loadSliderDotClasses(slider);
+    
+      slider.find('.slick-dots li').on('click', function() {
+        self._loadSliderDotClasses(slider);
+      });
+    
+      slider.on('swipe', function(event, slick, direction){
+        self._loadSliderDotClasses(slider);
+      });
+          
+    },
+
+    _loadSliderDotClasses: function(stickSlider) {
+
+      var dot = stickSlider.find('.slick-dots li.slick-active'),
+      dotSize1 = 'dot-size-1',
+      dotSize2 = 'dot-size-2',
+      dotSize3 = 'dot-size-3';
+
+      stickSlider.find('.slick-dots li').each(function() {
+        $(this).removeClass(dotSize1).removeClass(dotSize2).removeClass(dotSize3);
+      });
+
+      dot.prev().prev().prev().addClass(dotSize1);
+      dot.prev().prev().addClass(dotSize2);
+      dot.prev().addClass(dotSize3);
+      dot.next().addClass(dotSize3);
+      dot.next().next().addClass(dotSize2);
+      dot.next().next().next().addClass(dotSize1);
     },
 
     _initMediaSwitch: function() {

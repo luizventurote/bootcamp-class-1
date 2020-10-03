@@ -980,3 +980,48 @@ select {
 .search-page-form {
     display: none;
 }
+
+
+
+.slick-dots li button:before {
+    background: green;
+}
+
+.slick-dots li button {
+display: none;
+}
+
+.slick-dots li {
+    height: 12px;
+    border-radius: 6px;
+    background: red;
+    transition: transform 0.25s ease 0.25s, width 0.25s ease 0.25s, margin 0.25s ease 0.25s, background 0s ease 0.25s;
+    transform: scale(0);
+    width: 0px;
+    margin: 0px;
+}
+
+.slick-dots li.slick-active {
+    background: #000;
+    transform: scale(4);
+    width: 12px;
+    margin: 0 30px;
+}
+
+.slick-dots li.dot-size-3 {
+    transform: scale(3);
+    width: 12px;
+    margin: 0 30px;
+}
+
+.slick-dots li.dot-size-2 {
+    transform: scale(2);
+    width: 12px;
+    margin: 0 30px;
+}
+
+.slick-dots li.dot-size-1 {
+    transform: scale(1);
+    width: 12px;
+    margin: 0 30px;
+}
