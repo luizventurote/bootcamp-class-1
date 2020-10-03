@@ -55,19 +55,15 @@
   </div>
 </div>
 
-
 {% if search.performed %}
-  {% if search.results_count > 0 %}
-    <hr aria-hidden="true" />
-  {% endif %}
 
   <h2 class="visually-hidden">{{ 'general.search.heading' | t: count: search.results_count }}</h2>
 
-  <ul class="page-width list-view-items">
+  <ul class="page-width grid grid--uniform grid--view-items">
     {% for item in search.results %}
-      <li class="list-view-item">
+      <li class="grid__item grid__item--collection-template small--one-half medium-up--one-quarter">
         {% if item.object_type == 'product' %}
-          {% include 'product-card-list', product: item %}
+          {% include 'product-card-grid', max_height: 250, product: item, show_vendor: false %}
         {% else %}
           <div class="product-card product-card--list">
             <a href="{{ item.url }}" class="full-width-link">
@@ -94,6 +90,7 @@
             </div>
           </div>
         {% endif %}
+
       </li>
     {% endfor %}
   </ul>
@@ -101,6 +98,7 @@
   {%- if paginate.pages > 1 -%}
     {% include 'pagination', paginate: paginate %}
   {%- endif -%}
+
 {% endif %}
 
 {% if search.results_count < 2  %}
