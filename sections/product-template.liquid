@@ -148,12 +148,15 @@
 
           {% form 'product', product, class:form_classes, novalidate: 'novalidate', data-product-form: '' %}
             {% unless product.has_only_default_variant %}
-              <div class="product-form__controls-group">
+              <div class="product-form__controls-group {% if section.settings.enable_swatch %}product-form__swatch-controls{% endif %}">
                 {% for option in product.options_with_values %}
-                  <div class="selector-wrapper js product-form__item">
+                  <div class="selector-wrapper js product-form__item {{ option.name | downcase }}">
                     <label {% if option.name == 'default' %}class="label--hidden" {% endif %}for="SingleOptionSelector-{{ forloop.index0 }}">
                       {{ option.name }}
                     </label>
+                    {% if section.settings.enable_swatch %}
+                      {% render 'product-form-option--swatches', option: option, index: forloop.index0 %}
+                    {% endif %}
                     <select class="single-option-selector single-option-selector-{{ section.id }} product-form__input"
                       id="SingleOptionSelector-{{ forloop.index0 }}"
                       data-index="option{{ forloop.index }}"
@@ -617,6 +620,15 @@
         "th": "เปิดใช้งานการวนซ้ำวิดีโอ",
         "zh-CN": "启用视频循环",
         "zh-TW": "啟用影片循環功能"
+      },
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_swatch",
+      "label": {
+        "en": "Enable swatches",
+        "pt-BR": "Habilitar amostras"
       },
       "default": false
     }
