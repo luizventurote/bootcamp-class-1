@@ -981,47 +981,97 @@ select {
     display: none;
 }
 
+// Infinity dots
+// -----------------------------------------------------------
 
+.infinity-dots {
 
-.slick-dots li button:before {
-    background: green;
+    .slick-dots {
+        display: block;
+        padding: 0;
+        position: absolute;
+        bottom: 16px;
+        left: 0;
+        right: 0;
+        width: 220px;
+        margin: auto;
+    }
+
+    .slick-dots li {
+        height: 3px;
+        border-radius: 6px;
+        background: $color-border;
+        transition: transform 0.25s ease 0.25s, width 0.25s ease 0.25s, margin 0.25s ease 0.25s, background 0s ease 0.25s;
+        transform: scale(0);
+        width: 0px;
+        margin: 0px;
+    }
+
+    .slick-dots li button {
+        display: none;
+    }
+
+    .slick-dots li.slick-active {
+        background: $color-black;
+        transform: scale(4);
+        width: 3px;
+        margin: 0 13px;
+    }
+    
+    .slick-dots li.dot-size-3 {
+        transform: scale(3);
+        width: 3px;
+        margin: 0 9px;
+    }
+    
+    .slick-dots li.dot-size-2 {
+        transform: scale(2);
+        width: 3px;
+        margin: 0 10px;
+    }
+    
+    .slick-dots li.dot-size-1 {
+        transform: scale(1);
+        width: 3px;
+        margin: 0 5px;
+    }
 }
 
-.slick-dots li button {
-display: none;
+// Product page
+// -----------------------------------------------------------
+
+.template-product {
+
+    .main-content {
+        padding-top: 0;
+    }
 }
 
-.slick-dots li {
-    height: 12px;
-    border-radius: 6px;
-    background: red;
-    transition: transform 0.25s ease 0.25s, width 0.25s ease 0.25s, margin 0.25s ease 0.25s, background 0s ease 0.25s;
-    transform: scale(0);
-    width: 0px;
-    margin: 0px;
+.product-media-slider {
+    width: calc(100% + 44px);
+    margin-left: -22px;
+
+    .slick-slide {
+
+        .product-single__media {
+
+            img {
+                max-width: 100% !important;
+                max-height: none !important;
+            }
+        }
+    }
 }
 
-.slick-dots li.slick-active {
-    background: #000;
-    transform: scale(4);
-    width: 12px;
-    margin: 0 30px;
+.thumbnails-wrapper {
+    display: none;
 }
 
-.slick-dots li.dot-size-3 {
-    transform: scale(3);
-    width: 12px;
-    margin: 0 30px;
-}
 
-.slick-dots li.dot-size-2 {
-    transform: scale(2);
-    width: 12px;
-    margin: 0 30px;
-}
 
-.slick-dots li.dot-size-1 {
-    transform: scale(1);
-    width: 12px;
-    margin: 0 30px;
-}
+
+
+
+
+
+

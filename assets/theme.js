@@ -6587,6 +6587,7 @@ theme.Product = (function() {
       errorMessageWrapper: '[data-error-message-wrapper]',
       imageZoomWrapper: '[data-image-zoom-wrapper]',
       productMediaWrapper: '[data-product-single-media-wrapper]',
+      productMediaSliderSelector: '[data-product-media-slider]',
       productThumbImages: '.product-single__thumbnail--' + sectionId,
       productThumbs: '.product-single__thumbnails-' + sectionId,
       productThumbListItem: '.product-single__thumbnails-item',
@@ -6756,15 +6757,17 @@ theme.Product = (function() {
 
     _initMediaSlider: function() {
 
-      var slider = $('[data-product-media-slider]'),
+      var slider = $(this.selectors.productMediaSliderSelector),
           self = this;
     
       slider.slick({
         slidesToShow: 1,
         slidesToScroll: 1,
+        infinite: true,
         dots: true,
         arrows: false,
         adaptiveHeight: true
+        //asNavFor: this.selectors.productThumbs
       });
     
       this._loadSliderDotClasses(slider);
@@ -6780,6 +6783,8 @@ theme.Product = (function() {
     },
 
     _loadSliderDotClasses: function(stickSlider) {
+
+      stickSlider.addClass('infinity-dots');
 
       var dot = stickSlider.find('.slick-dots li.slick-active'),
       dotSize1 = 'dot-size-1',
@@ -7277,7 +7282,10 @@ theme.Product = (function() {
         slidesToScroll: 2,
         infinite: false,
         prevArrow: '.thumbnails-slider__prev--' + this.settings.sectionId,
-        nextArrow: '.thumbnails-slider__next--' + this.settings.sectionId
+        nextArrow: '.thumbnails-slider__next--' + this.settings.sectionId,
+        //asNavFor: this.selectors.productMediaSliderSelector,
+        centerMode: true,
+        focusOnSelect: true 
       };
 
       $(this.selectors.productThumbs).slick(options);
