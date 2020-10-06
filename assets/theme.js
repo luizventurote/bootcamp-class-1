@@ -6587,6 +6587,7 @@ theme.Product = (function() {
       errorMessageWrapper: '[data-error-message-wrapper]',
       imageZoomWrapper: '[data-image-zoom-wrapper]',
       productMediaWrapper: '[data-product-single-media-wrapper]',
+      productMediaSliderSelector: '[data-product-media-slider]',
       productThumbImages: '.product-single__thumbnail--' + sectionId,
       productThumbs: '.product-single__thumbnails-' + sectionId,
       productThumbListItem: '.product-single__thumbnails-item',
@@ -6666,7 +6667,15 @@ theme.Product = (function() {
     this.initDesktopBreakpoint();
     this._stringOverrides();
     this._initVariants();
-    this._initMediaSwitch();
+
+
+
+
+    this._initMediaSlider();
+
+    //this._initMediaSwitch();
+
+
     this._initAddToCart();
     this._setActiveThumbnail();
     this._initProductVideo();
@@ -6744,6 +6753,54 @@ theme.Product = (function() {
         'variantSKUChange' + this.settings.namespace,
         this._updateSKU.bind(this)
       );
+    },
+
+    _initMediaSlider: function() {
+
+      var slider = $(this.selectors.productMediaSliderSelector),
+          self = this;
+    
+      slider.slick({
+        slidesToShow: 1,
+        slidesToScroll: 1,
+        infinite: true,
+        dots: true,
+        arrows: false,
+        adaptiveHeight: true
+        //asNavFor: this.selectors.productThumbs
+      });
+    
+      this._loadSliderDotClasses(slider);
+    
+      slider.find('.slick-dots li').on('click', function() {
+        self._loadSliderDotClasses(slider);
+      });
+    
+      slider.on('swipe', function(event, slick, direction){
+        self._loadSliderDotClasses(slider);
+      });
+          
+    },
+
+    _loadSliderDotClasses: function(stickSlider) {
+
+      stickSlider.addClass('infinity-dots');
+
+      var dot = stickSlider.find('.slick-dots li.slick-active'),
+      dotSize1 = 'dot-size-1',
+      dotSize2 = 'dot-size-2',
+      dotSize3 = 'dot-size-3';
+
+      stickSlider.find('.slick-dots li').each(function() {
+        $(this).removeClass(dotSize1).removeClass(dotSize2).removeClass(dotSize3);
+      });
+
+      dot.prev().prev().prev().addClass(dotSize1);
+      dot.prev().prev().addClass(dotSize2);
+      dot.prev().addClass(dotSize3);
+      dot.next().addClass(dotSize3);
+      dot.next().next().addClass(dotSize2);
+      dot.next().next().next().addClass(dotSize1);
     },
 
     _initMediaSwitch: function() {
@@ -7225,7 +7282,10 @@ theme.Product = (function() {
         slidesToScroll: 2,
         infinite: false,
         prevArrow: '.thumbnails-slider__prev--' + this.settings.sectionId,
-        nextArrow: '.thumbnails-slider__next--' + this.settings.sectionId
+        nextArrow: '.thumbnails-slider__next--' + this.settings.sectionId,
+        //asNavFor: this.selectors.productMediaSliderSelector,
+        centerMode: true,
+        focusOnSelect: true 
       };
 
       $(this.selectors.productThumbs).slick(options);
