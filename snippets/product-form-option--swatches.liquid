@@ -1,0 +1,19 @@
+
+{% assign singleOptionSelector = "#SingleOptionSelector-" | append: index %}
+
+<div class="swatch-wrapper">
+    {% for value in option.values %}
+        <div class="swatch-option">
+            <input 
+            id="swatch-option-{{ value | escape }}" 
+            name="{{ option.name }}" 
+            type="radio"
+            data-option-swatch
+            data-option-selector="{{ singleOptionSelector }}"
+            data-option-value="{{ value | escape }}"
+            value="{{ value | escape }}"
+            {% if option.selected_value == value %}checked{% endif %} />
+            <label for="swatch-option-{{ value | escape }}" class="color-{{ value | escape | downcase }}">{{ value }}</label>
+        </div>
+    {% endfor %} 
+</div>
