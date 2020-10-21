@@ -1,6 +1,13 @@
 // Variables
 // -----------------------------------------------------------
 
+// Breakpoints
+$width-site: 1200px;
+
+$grid-medium: 750px;
+$grid-large: 990px;
+$grid-widescreen: 1400px;
+
 // Colors
 $color-border: #CCCCCC;
 $color-black: #000;
@@ -14,6 +21,7 @@ $color-body: {{ settings.color_body_bg }};
 
 // Header
 $header-mobile-hight: 56px;
+$header-desktop-hight: 88px;
     
 // Fonts
 // -----------------------------------------------------------    
@@ -322,6 +330,17 @@ select {
     width: 100%;
     z-index: 999;
     padding: 8px 20px;
+
+    @media screen and (min-width: $grid-large) {
+        height: $header-desktop-hight;
+        padding-top: 16px;
+        padding-bottom: 16px;
+
+        .site-header__mobile-nav {
+            max-width: $width-site;
+            margin: auto;
+        }
+    }
 }
 
 .site-header__logo-wrapper {
@@ -337,6 +356,65 @@ select {
     img {
         height: 40px;
     }
+
+    @media screen and (min-width: $grid-large) {
+        width: 160px !important;
+
+        img {
+            height: 56px;
+            max-width: 160px !important;
+        }
+    }
+}
+
+.site-nav {
+  position: absolute;
+  padding: 0;
+  text-align: left;
+  margin: 0;
+  top: 0;
+  left: 140px;
+  width: calc(100% - 260px);
+  z-index: 1;
+  text-transform: uppercase;
+  display: flex;
+  flex-wrap: wrap;
+
+  > li {
+      margin: 0 20px 0 0;
+  }
+
+  @media screen and (min-width: $grid-large) {
+    left: 216px;
+
+    > li {
+        margin: 0 50px 0 0;
+    }
+  }
+
+  .site-nav__link {
+      line-height: 40px;
+      font-size: 12px;
+
+      @media screen and (min-width: $grid-large) {
+        font-size: 16px;
+        line-height: 56px;
+      }
+  }
+
+  .site-nav__link--button {
+    padding: 0;
+    margin: 0;
+    height: auto;
+    line-height: 40px;
+    font-size: 12px;
+    color: $color-black;
+
+    @media screen and (min-width: $grid-large) {
+      font-size: 16px;
+      line-height: 56px;
+    }
+  }
 }
 
 .site-header__icon {
@@ -350,6 +428,13 @@ select {
 
     &.site-header__cart {
         margin-left: 15px;
+    }
+
+    @media screen and (min-width: $grid-medium) {
+
+        &.site-header__menu {
+            display: none;
+        }
     }
 }
 

@@ -2533,17 +2533,6 @@ textarea {
   }
 }
 
-.site-nav {
-  position: relative;
-  padding: 0;
-  text-align: center;
-  margin: 25px 0;
-
-  a {
-    padding: 3px 10px;
-  }
-}
-
 .site-nav--centered {
   padding-bottom: $gutter-site-mobile;
 }
@@ -2579,10 +2568,6 @@ textarea {
 
 .site-nav__label {
   border-bottom: 1px solid transparent;
-
-  .site-nav__link--active & {
-    border-bottom-color: $color-text;
-  }
 }
 
 .site-nav__link--button {
@@ -4869,6 +4854,13 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 .site-header__icon {
+
+  &.site-header__menu {
+    
+    @include media-query($medium-up) {
+      display: none;
+    }
+  }
 }
 
 ///
