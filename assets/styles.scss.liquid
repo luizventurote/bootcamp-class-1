@@ -502,6 +502,17 @@ select {
     .page-width {
         padding: 0;
     }
+
+    @media screen and (max-width: $grid-large - 1) {
+
+        .page-width {
+            max-width: 400px;
+        }
+    }
+
+    @media screen and (min-width: $grid-large) {
+        padding-top: 72px;
+    }
 }
 
 .site-footer__item-inner--logo_img {
@@ -519,11 +530,37 @@ select {
         height: 48px;
         margin: auto;
     }
+
+    & + .site-footer__rte {
+        margin-top: 24px;
+    }
+
+    @media screen and (min-width: $grid-large) {
+        margin: 0;
+
+        img {
+            margin: 0;
+        }
+
+        & + .site-footer__rte {
+            text-align: left;
+        }
+    }
 }
 
 .site-footer__rte {
-    margin-bottom: 56px;
+    margin-bottom: 32px;
     text-align: center;
+}
+
+.site-footer__item {
+
+    @media screen and (min-width: $grid-large) {
+
+        &:first-of-type {
+            padding-right: 128px;
+        }
+    }
 }
 
 .site-footer__item-inner--link_list {
@@ -570,14 +607,80 @@ select {
         padding-left: 25px;
         display: none;
     }
+
+    @media screen and (min-width: $grid-large) {
+        margin-bottom: 0;
+
+        .level-1 {
+            display: flex;
+
+            > li {
+                width: calc(100% / 3);
+                padding-right: 0;
+                padding-left: 30px;
+
+                > a {
+                    font-weight: bold;
+                    margin-bottom: 16px;
+                }
+
+                &:first-child {
+                    padding-left: 0;
+                }
+            }
+        }
+
+        .level-2,
+        .level-3 {
+            display: block !important;
+            padding-left: 0;
+        }
+
+        .site-footer__linklist-item {
+
+            &.account-item {
+                display: none;
+            }
+        }
+    }
 }
 
 .site-footer__icon-list {
     margin-bottom: 40px;
+    
+    .social-icons__item {
+        padding: 0 20px;
+    }
+
+    @media screen and (min-width: $grid-large) {
+        margin-bottom: 32px;
+
+        .social-icons__item {
+
+            &:first-child {
+                padding-left: 0;
+            }
+        }
+    }
 }
 
 .site-footer__copyright-content {
     display: block;
+
+    @media screen and (min-width: $grid-large) {
+        padding: 16px 0 32px;
+        position: relative;
+        
+        &:before {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 1px;
+            background: $color-black-focus;
+            position: absolute;
+            top: 0;
+        }
+    }
 }
 
 // Hero banner
