@@ -103,12 +103,12 @@
 
       <div class="image-banner overlay-{{ section.settings.overlay_alignment }}">
 
-        {%- assign desktop_image = image_desktop: section.settings.image_desktop | img_url: '3000x' -%}
+        {%- assign desktop_image = section.settings.image_desktop | img_url: '3000x' -%}
         {%- assign mobile_image = section.settings.image | img_url: '1600x' -%}
         {%- assign small_image = section.settings.image_desktop | img_url: '500x' -%}
         {%- assign alt_image = section.settings.image.alt | escape -%}
 
-        {{ render 'responsive-image', small_image: small_image, image_mobile: mobile_image, desktop_image: desktop_image, alt: alt_image }}
+        {% render 'responsive-image', small_image: small_image, mobile_image: mobile_image, desktop_image: desktop_image, alt: alt_image %}
 
         <div class="overlay">
 
