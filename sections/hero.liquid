@@ -11,7 +11,7 @@
     }
   {%- endstyle -%}
 {%- endif -%}
-<div data-section-id="{{ section.id }}" data-section-type="hero-section">
+<div data-section-id="{{ section.id }}" data-section-type="hero-section" class="hero-section hero-{{ section.settings.style }}">
 
   {%- if section.settings.hero_layout == 'fixed_width' -%}
     <div class="page-width">
@@ -110,10 +110,10 @@
 
         {% render 'responsive-image', small_image: small_image, mobile_image: mobile_image, desktop_image: desktop_image, alt: alt_image %}
 
-        <div class="overlay">
-
-            {% include 'hero-overlay-content' %}
-
+        <div class="overlay-container">
+          <div class="overlay">
+              {% include 'hero-overlay-content' %}
+          </div>
         </div>
 
       </div>
@@ -125,6 +125,12 @@
   {%- endif -%}
 
 </div>
+
+<script>
+
+  document.getElementById('shopify-section-{{ section.id }}').classList.add('section-hero-{{ section.settings.style }}');
+
+</script>
 
 {% schema %}
 {
@@ -154,6 +160,46 @@
       "type": "checkbox",
       "id": "background_image",
       "label": "Image background"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "select",
+      "id": "style",
+      "label": {
+        "en": "Styles",
+        "pt-BR": "Estilos"
+      },
+      "default": "full_width",
+      "options": [
+        {
+          "label": {
+            "en": "Full width",
+            "pt-BR": "Largura completa"
+          },
+          "value": "full_width"
+        },
+        {
+          "label": {
+            "en": "Container",
+            "pt-BR": "Container"
+          },
+          "value": "container"
+        },
+        {
+          "label": {
+            "en": "Extra Content",
+            "pt-BR": "Conteúdo Extra"
+          },
+          "value": "extra_content"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "Image"
     },
     {
       "type": "image_picker",
