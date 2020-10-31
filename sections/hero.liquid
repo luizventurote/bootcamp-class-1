@@ -103,22 +103,21 @@
 
       <div class="image-banner overlay-{{ section.settings.overlay_alignment }}">
 
-        {%- assign img_url = section.settings.image | img_url: '1x1' | replace: '_1x1.', '_{width}x.' -%}
+        {%- assign desktop_image = image_desktop: section.settings.image_desktop | img_url: '3000x' -%}
+        {%- assign mobile_image = section.settings.image | img_url: '1600x' -%}
+        {%- assign small_image = section.settings.image_desktop | img_url: '500x' -%}
+        {%- assign alt_image = section.settings.image.alt | escape -%}
 
-        <img style="width: 100%; display: block;=" alt="Test" class="lazyload"
-        src="{{ section.settings.image | img_url: '200x' }}"
-        data-src="{{ img_url }}"
-        data-widths="[180, 360, 540, 720, 900, 1080, 1296, 1512, 1728, 2048]"
-        data-sizes="auto"/>
+        {{ render 'responsive-image', small_image: small_image, image_mobile: mobile_image, desktop_image: desktop_image, alt: alt_image }}
 
         <div class="overlay">
 
-          {% include 'hero-overlay-content' %}
+            {% include 'hero-overlay-content' %}
 
         </div>
 
       </div>
-      
+
     {% endif %}
 
   {%- if section.settings.hero_layout == 'fixed_width' -%}
@@ -173,6 +172,30 @@
         "nb": "Bilde",
         "nl": "Afbeelding",
         "pt-BR": "Imagem",
+        "pt-PT": "Imagem",
+        "sv": "Bild",
+        "th": "รูปภาพ",
+        "zh-CN": "图片",
+        "zh-TW": "圖片"
+      }
+    },
+    {
+      "type": "image_picker",
+      "id": "image_desktop",
+      "label": {
+        "da": "Billede",
+        "de": "Foto",
+        "en": "Image - Desktop",
+        "es": "Imagen",
+        "fi": "Kuva",
+        "fr": "Image",
+        "hi": "इमेज",
+        "it": "Immagine",
+        "ja": "画像",
+        "ko": "이미지",
+        "nb": "Bilde",
+        "nl": "Afbeelding",
+        "pt-BR": "Imagem - Desktop",
         "pt-PT": "Imagem",
         "sv": "Bild",
         "th": "รูปภาพ",
