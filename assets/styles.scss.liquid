@@ -368,27 +368,89 @@ select {
 }
 
 .site-nav {
-  position: absolute;
-  padding: 0;
-  text-align: left;
-  margin: 0;
-  top: 0;
-  left: 140px;
-  width: calc(100% - 260px);
-  z-index: 1;
-  text-transform: uppercase;
-  display: flex;
-  flex-wrap: wrap;
+    position: absolute;
+    padding: 0;
+    text-align: left;
+    margin: 0;
+    top: 0;
+    left: 140px;
+    width: calc(100% - 260px);
+    z-index: 1;
+    text-transform: uppercase;
+    display: flex;
+    flex-wrap: wrap;
 
-  > li {
-      margin: 0 20px 0 0;
-  }
+    > li {
+        margin: 0 20px 0 0;
+    }
+
+    @media screen and (min-width: $grid-medium) {
+
+        > li {
+            position: relative;
+        }
+
+        .site-nav__childlist {
+            display: block;
+            padding: 16px 25px;
+        }
+
+        .site-nav__childlist-grid {
+            flex-wrap: nowrap;
+            margin: 0;
+        }
+
+        .site-nav__dropdown {
+            border: 0;
+        }
+
+        .site-nav--active-dropdown {
+
+            .site-nav__dropdown {
+                top: 48px !important;
+                left: -25px;
+                width: auto;
+            }
+        }
+
+        .site-nav__childlist-item {
+            margin: 0 20px;
+
+            &:first-of-type {
+                margin-left: 0;
+            }
+
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+
+        .site-nav__link.site-nav__child-link {
+            font-size: 12px;
+            line-height: 32px;
+            padding: 0;
+            margin: 0;
+        }
+    }
 
   @media screen and (min-width: $grid-large) {
     left: 216px;
 
     > li {
         margin: 0 50px 0 0;
+    }
+
+    .site-nav--active-dropdown {
+
+        .site-nav__dropdown {
+            top: 72px !important;
+            left: -30px;
+        }
+    }
+
+    .site-nav__link.site-nav__child-link {
+        font-size: 14px;
+        line-height: 40px;
     }
   }
 
@@ -409,6 +471,10 @@ select {
     line-height: 40px;
     font-size: 12px;
     color: $color-black;
+
+    &:focus {
+        background: transparent;
+    }
 
     @media screen and (min-width: $grid-large) {
       font-size: 16px;
