@@ -4045,8 +4045,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 .collection-hero {
   position: relative;
   overflow: hidden;
-  margin-top: -40px;
-  margin-bottom: 40px;
 
   img {
     width: 100%;
@@ -4059,8 +4057,6 @@ $color-blankstate-background: rgba($color-body-text, 0.1);
 }
 
 .collection-description {
-  margin-bottom: $gutter-site-mobile;
-  margin-top: $gutter-site-mobile;
 
   @include media-query($medium-up) {
     margin-bottom: $section-spacing-small;
@@ -6872,7 +6868,7 @@ $toolbar-height-small: 40px;
 
   .filters-toolbar__input {
     @include media-query($small) {
-      width: 100%;
+      width: 100% !important;
     }
   }
 }
