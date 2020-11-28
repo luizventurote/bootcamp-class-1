@@ -1584,11 +1584,22 @@ select {
     width: calc(100% + 44px);
     margin-left: -22px;
 
+    &:not(.slick-initialized) {
+
+        > .product-single__media-wrapper {
+            display: none;
+    
+            &:first-child {
+                display: block;
+            }
+        }
+    }
+
     .slick-slide {
 
         .product-single__media {
 
-            img {
+            img:not(.zoomImg) {
                 max-width: 100% !important;
                 max-height: none !important;
             }
@@ -1601,6 +1612,13 @@ select {
 
     @media screen and (min-width: $grid-medium) {
         display: block;
+    }
+}
+
+.product-single__thumbnails-item {
+
+    &.slick-current {
+        opacity: 0.8;
     }
 }
 
@@ -1643,6 +1661,43 @@ select {
         }
     }
 }
+
+// Slick slider
+// -----------------------------------------------------------
+
+.slick-arrow {
+    display: block;
+    top: 0;
+    bottom: 0;
+    height: 100%;
+    transform: none;
+    width: 30px;
+    padding: 0 3px;
+        
+    &:before {
+        font-size: 0;
+        width: 24px;
+        height: 24px;
+        background: url({{ "icon-arrow.svg" | asset_url }}) no-repeat;
+        display: block;
+        opacity: 1;
+    }
+
+    &.slick-next {
+
+        &:before {
+            transform: rotate(-90deg); 
+        }
+    }
+
+    &.slick-prev {
+
+        &:before {
+            transform: rotate(90deg); 
+        }
+    }
+}
+
 
 // Swatches
 // -----------------------------------------------------------

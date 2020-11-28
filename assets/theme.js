@@ -6770,7 +6770,7 @@ theme.Product = (function() {
       slider.slick({
         slidesToShow: 1,
         slidesToScroll: 1,
-        infinite: true,
+        infinite: false,
         dots: false,
         arrows: false,
         adaptiveHeight: true,
@@ -7302,8 +7302,6 @@ theme.Product = (function() {
         infinite: false,
         arrows: true,
         dots: false,
-        prevArrow: '.thumbnails-slider__prev--' + this.settings.sectionId,
-        nextArrow: '.thumbnails-slider__next--' + this.settings.sectionId,
         asNavFor: this.selectors.productMediaSliderSelector,
         centerMode: false,
         focusOnSelect: false 
