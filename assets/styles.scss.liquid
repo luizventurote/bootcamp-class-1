@@ -66,6 +66,11 @@ h1 {
 h2 {
     font-size: 24px;
     line-height: 32px;
+
+    @media screen and (min-width: $grid-large){
+        font-size: 32px;
+        line-height: 40px;
+    }
 }
 
 .h3,
@@ -318,6 +323,10 @@ select {
 
 .page-container {
     padding-top: $header-mobile-hight;
+
+    @media screen and (min-width: $grid-large) {
+        padding-top: $header-desktop-hight;
+    }
 }
 
 // Header
@@ -1322,6 +1331,47 @@ select {
             margin: 0 5px;
         }
     }
+
+    @media screen and (min-width: $grid-medium) {
+        display: flex;
+        flex-wrap: wrap;
+        width: 360px;
+        margin: auto;
+
+        > * {
+            width: 100%;
+        }
+
+        > .product-single__title {
+            order: 0;
+        }
+
+        > .product-single__description {
+            order: 1;
+            margin: 8px 0 24px;
+        }
+
+        > .product__price {
+            order: 2;
+            margin-bottom: 0;
+        }
+
+        > .product-form {
+            order: 3;
+        }
+    }
+
+    @media screen and (min-width: $grid-large) {
+
+        > .product-single__description {
+            margin: 16px 0 48px;
+        }
+
+        > .product__price {
+            margin-bottom: 8px;
+            margin-bottom: 8px;
+        }
+    }
 }
 
 .product-form {
@@ -1548,6 +1598,50 @@ select {
 
 .thumbnails-wrapper {
     display: none;
+
+    @media screen and (min-width: $grid-medium) {
+        display: block;
+    }
+}
+
+// Breadcrumbs
+// -----------------------------------------------------------
+
+.breadcrumbs {
+    font-size: 12px;
+    line-height: 16px;
+    margin: 16px 0;
+
+    .template-product & {
+        display: none;
+    }
+
+    .breadcrumbs__list {
+        display: flex;
+    }
+
+    .breadcrumbs__item {
+
+        &:after {
+            content: '/';
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        &:last-child {
+
+            &:after {
+                display: none;
+            }
+        }
+    }
+
+    @media screen and (min-width: $grid-medium) {
+        
+        .template-product & {
+            display: block;
+        }
+    }
 }
 
 // Swatches

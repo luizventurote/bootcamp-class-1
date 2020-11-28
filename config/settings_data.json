@@ -48,6 +48,7 @@
     "checkout_accent_color": "#161616",
     "checkout_button_color": "#000000",
     "checkout_error_color": "#e32c2b",
+    "enable_swatches": true,
     "share_instagram": true,
     "sections": {
       "header": {
@@ -61,7 +62,6 @@
           "message": false,
           "home_page_only": true,
           "message_text": "Anuncie algo aqui",
-          "message_link": "",
           "color_bg": "#ed1e7a",
           "color_text": "#ffffff"
         }
@@ -70,7 +70,9 @@
         "type": "hero",
         "settings": {
           "background_image": false,
+          "style": "container",
           "image": "shopify:\/\/shop_images\/image_3.jpg",
+          "image_desktop": "shopify:\/\/shop_images\/banner-homepage-1.jpg",
           "alignment": "center",
           "hero_layout": "full_width",
           "hero_size": "adapt",
@@ -103,13 +105,7 @@
             "type": "logo_img",
             "settings": {
               "title": "",
-              "img": "shopify:\/\/shop_images\/white-logo.png"
-            }
-          },
-          "1598310423659": {
-            "type": "text",
-            "settings": {
-              "title": "Fale sobre o seu negócio",
+              "img": "shopify:\/\/shop_images\/white-logo.png",
               "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>"
             }
           },
@@ -123,7 +119,6 @@
         },
         "block_order": [
           "1598309803619",
-          "1598310423659",
           "footer-0"
         ],
         "settings": {
@@ -141,10 +136,10 @@
           "show_variant_labels": true,
           "show_vendor": false,
           "enable_payment_button": true,
-          "show_share_buttons": true,
           "media_size": "medium",
           "enable_image_zoom": true,
-          "enable_video_looping": false
+          "enable_video_looping": false,
+          "enable_swatch": true
         }
       },
       "product-recommendations": {
@@ -215,15 +210,16 @@
           "layout": "left",
           "title": "Designed for fashion.",
           "text": "<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.<\/p>",
-          "button_label": "",
-          "button_link": ""
+          "button_label": ""
         }
       },
       "1599505506966": {
         "type": "hero",
         "settings": {
           "background_image": false,
+          "style": "extra_content",
           "image": "shopify:\/\/shop_images\/image_10.jpg",
+          "image_desktop": "shopify:\/\/shop_images\/840x804_1.jpg",
           "alignment": "center",
           "hero_layout": "full_width",
           "hero_size": "medium",
@@ -242,7 +238,9 @@
         "type": "hero",
         "settings": {
           "background_image": false,
+          "style": "full_width",
           "image": "shopify:\/\/shop_images\/image_9.jpg",
+          "image_desktop": "shopify:\/\/shop_images\/2160x732_1.jpg",
           "alignment": "center",
           "hero_layout": "full_width",
           "hero_size": "medium",
@@ -286,8 +284,8 @@
       "collection",
       "1599505506966",
       "1599505958410",
-      "1599317781285",
       "1599505658035",
+      "1599317781285",
       "1599505837827"
     ]
   },

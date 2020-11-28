@@ -6677,14 +6677,11 @@ theme.Product = (function() {
     this._stringOverrides();
     this._initVariants();
 
-
-
-
     this._initMediaSlider();
+    this._initMediaSwitch();
 
-    //this._initMediaSwitch();
-
-
+    this._initThumbnailSlider();
+    
     this._initAddToCart();
     this._setActiveThumbnail();
     this._initProductVideo();
@@ -6702,7 +6699,7 @@ theme.Product = (function() {
       if (this.mqlSmall.matches) {
         // initialize thumbnail slider on mobile if more than four thumbnails
         if ($(this.selectors.productThumbImages).length > 4) {
-          this._initThumbnailSlider();
+          //this._initThumbnailSlider();
         }
 
         // destroy image zooming if enabled
@@ -6774,10 +6771,18 @@ theme.Product = (function() {
         slidesToShow: 1,
         slidesToScroll: 1,
         infinite: true,
-        dots: true,
+        dots: false,
         arrows: false,
-        adaptiveHeight: true
-        //asNavFor: this.selectors.productThumbs
+        adaptiveHeight: true,
+        responsive: [
+          {
+            breakpoint: 749,
+            settings: {
+              dots: true
+            }
+          }
+        ],
+        asNavFor: this.selectors.productThumbs
       });
     
       this._loadSliderDotClasses(slider);
@@ -6787,6 +6792,10 @@ theme.Product = (function() {
       });
     
       slider.on('swipe', function(event, slick, direction){
+        self._loadSliderDotClasses(slider);
+      });
+    
+      slider.on('breakpoint', function(event, slick, direction){
         self._loadSliderDotClasses(slider);
       });
           
@@ -6827,7 +6836,7 @@ theme.Product = (function() {
 
           var mediaId = $el.data('thumbnail-id');
 
-          self._switchMedia(mediaId);
+          //self._switchMedia(mediaId);
           self._setActiveThumbnail(mediaId);
         })
         .on('keyup', self._handleMediaFocus.bind(self));
@@ -7289,13 +7298,15 @@ theme.Product = (function() {
     _initThumbnailSlider: function() {
       var options = {
         slidesToShow: 3,
-        slidesToScroll: 2,
+        slidesToScroll: 1,
         infinite: false,
+        arrows: true,
+        dots: false,
         prevArrow: '.thumbnails-slider__prev--' + this.settings.sectionId,
         nextArrow: '.thumbnails-slider__next--' + this.settings.sectionId,
-        //asNavFor: this.selectors.productMediaSliderSelector,
-        centerMode: true,
-        focusOnSelect: true 
+        asNavFor: this.selectors.productMediaSliderSelector,
+        centerMode: false,
+        focusOnSelect: false 
       };
 
       $(this.selectors.productThumbs).slick(options);
